@@ -6,7 +6,7 @@
 
 ## Cpp Linter
 
-**Linter your C-like code in workflow.** Including code formatting, diagnosing, and fixing typical programming errors.
+**Lint your C/C++ code in an automated workflow** including analysis regarding code formatting, diagnosing, and fixing typical programming errors.
 
 cpp-linter only provides integration with any CI environment, but also provides pre-commit hooks to check before committing.
 
