@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="/assets/readme-banner.png" width="444" height="160" alt="" />
+    <img src="/assets/readme-banner.png" width="355" height="128" alt="" />
 </p>
 
 ---
@@ -10,14 +10,10 @@
 
 Including analysis regarding code formatting, diagnosing, and fixing typical programming errors.
 
-cpp-linter provides integration with any CI environment and pre-commit hooks to check before committing.
-
 Wonder how to get started? check out:
 
-* [cpp-linter-action](https://github.com/cpp-linter/cpp-linter-action)
-* [cpp-linter-hooks](https://github.com/cpp-linter/cpp-linter-hooks)
-
----
+* [cpp-linter-action](https://github.com/cpp-linter/cpp-linter-action) as a CI workflow step
+* [cpp-linter-hooks](https://github.com/cpp-linter/cpp-linter-hooks) as a pre-commit workflow step
 
 ## Contributing 💪
 
