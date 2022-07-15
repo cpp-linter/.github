@@ -1,14 +1,16 @@
 <p align="center">
-    <img src="/assets/readme-banner.png" width="418" height="139" alt="" />
+    <img src="/assets/readme-banner.png" width="444" height="160" alt="" />
 </p>
 
 ---
 
 ## Cpp Linter
 
-**Lint your C/C++ code in an automated workflow** including analysis regarding code formatting, diagnosing, and fixing typical programming errors.
+**Lint your C/C++ code in an automated workflow** 
 
-cpp-linter only provides integration with any CI environment, but also provides pre-commit hooks to check before committing.
+Including analysis regarding code formatting, diagnosing, and fixing typical programming errors.
+
+cpp-linter provides integration with any CI environment and pre-commit hooks to check before committing.
 
 Wonder how to get started? check out:
 
