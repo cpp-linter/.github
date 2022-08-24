@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="readme-banner.png" width="400" alt="" />
+    <img src="readme-banner.png" min-width="320" min-height="88" alt="cpp-linter_brand_logo" />
 </p>
 
 ---
