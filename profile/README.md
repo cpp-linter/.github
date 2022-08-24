@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="/assets/readme-banner.png" width="355" height="128" alt="" />
+    <img src="/assets/readme-banner.png" width="727" height="200" alt="" />
 </p>
 
 ---
