@@ -1,7 +1,6 @@
 # Configuration for Release Drafter: https://github.com/toolmantim/release-drafter
-name-template: $NEXT_MINOR_VERSION
-tag-template: $NEXT_MINOR_VERSION
-version-template: $MAJOR.$MINOR.$PATCH
+name-template: 'v$RESOLVED_VERSION'
+tag-template: 'v$RESOLVED_VERSION'
 
 # Emoji reference: https://gitmoji.carloscuesta.me/
 categories:
@@ -52,6 +51,19 @@ exclude-labels:
   - no-changelog
   - skip-changelog
   - invalid
+
+# https://github.com/release-drafter/release-drafter?tab=readme-ov-file#version-resolver
+version-resolver:
+  major:
+    labels:
+      - 'major'
+  minor:
+    labels:
+      - 'minor'
+  patch:
+    labels:
+      - 'patch'
+  default: patch
 
 template: |
   <!-- Optional: add a release summary here -->
