@@ -52,6 +52,7 @@ exclude-labels:
   - skip-changelog
   - invalid
 
+change-template: '- $TITLE by @$AUTHOR in #$NUMBER'
 # https://github.com/release-drafter/release-drafter?tab=readme-ov-file#version-resolver
 version-resolver:
   major:
