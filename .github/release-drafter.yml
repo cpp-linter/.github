@@ -70,6 +70,8 @@ template: |
   <!-- Optional: add a release summary here -->
   $CHANGES
 
+  **Full Changelog**: https://github.com/$OWNER/$REPOSITORY/compare/$PREVIOUS_TAG...v$RESOLVED_VERSION
+
 autolabeler:
   - label: 'documentation'
     files:
