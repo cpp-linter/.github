@@ -8,4 +8,4 @@ on:
 
 jobs:
   main:
-    uses: ./.github/workflows/pre-commit.yml@reusable-workflows
+    uses: ./.github/workflows/pre-commit.yml
