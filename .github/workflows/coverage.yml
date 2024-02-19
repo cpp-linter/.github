@@ -1,4 +1,4 @@
-name: Collect code coverage
+name: Upload coverage reports
 
 on:
   workflow_call:
