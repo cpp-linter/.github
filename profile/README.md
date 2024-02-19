@@ -6,7 +6,7 @@
 
 ## Cpp Linter
 
-**Lint your C/C++ code in an automated workflow** 
+**Lint your C/C++ code in an automated workflow**
 
 Including analysis regarding code formatting, diagnosing, and fixing typical programming errors.
 
