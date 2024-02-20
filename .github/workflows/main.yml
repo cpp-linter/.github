@@ -7,17 +7,5 @@ on:
     branches: [main]
 
 jobs:
-  test-pre-commit:
+  main:
     uses: ./.github/workflows/pre-commit.yml
-  test-mkdocs:
-    uses: ./.github/workflows/mkdocs.yml
-  test-sphinx:
-    uses: ./.github/workflows/sphinx.yml
-    with:
-      path-to-doc: src
-  test-py-coverage:
-    uses: ./.github/workflows/py-coverage.yml
-  test-py-publish:
-    uses: ./.github/workflows/py-publish.yml
-  test-release-drafter:
-    uses: ./.github/workflows/release-drafter.yml
