@@ -2,12 +2,12 @@ name: Sphinx Deploy
 
 on:
   workflow_call:
-  inputs:
-    path-to-doc:
-      required: true
-      type: string
-      default: docs/_build/html
-      description: The docs path name
+    inputs:
+      path-to-doc:
+        required: true
+        type: string
+        default: docs/_build/html
+        description: The docs path name
 
 jobs:
   sphinx-deploy:
