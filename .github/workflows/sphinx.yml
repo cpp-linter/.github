@@ -3,11 +3,6 @@ name: Sphinx Deploy
 on:
   workflow_call:
   inputs:
-    artifact-name:
-      required: true
-      default: cpp-linter_docs
-      type: string
-      description: The docs artifact name
     path-to-doc:
       required: true
       type: string
