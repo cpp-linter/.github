@@ -1,3 +1,3 @@
-# .github
+# Org Metadata
 
-Global configurations for cpp-linter organization on GitHub
+Global configurations and assets for the cpp-linter organization on GitHub.
