@@ -14,7 +14,7 @@ jobs:
   test-sphinx:
     uses: ./.github/workflows/sphinx.yml
     with:
-      path-to-doc: .
+      path-to-doc: src
   test-py-coverage:
     uses: ./.github/workflows/py-coverage.yml
   test-py-publish:
