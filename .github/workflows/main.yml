@@ -13,6 +13,8 @@ jobs:
     uses: ./.github/workflows/mkdocs.yml
   test-sphinx:
     uses: ./.github/workflows/sphinx.yml
+    with:
+      path-to-doc: .
   test-py-coverage:
     uses: ./.github/workflows/py-coverage.yml
   test-py-publish:
