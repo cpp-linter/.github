@@ -2,6 +2,12 @@ name: Run pre-commit
 
 on:
   workflow_call:
+     inputs:
+      commands:
+        required: false
+        type: string
+        default: ""
+        description: run additional commands for preparing the environment
 
 jobs:
   run-pre-commit:
@@ -12,8 +18,11 @@ jobs:
         id: python-setup
         with:
           python-version: '3.x'
-      - name: Install dependencies
-        run: pip install pytest # pytest is often used as a local hook in .pre-commit-config.yaml
+      - name: Run commands
+        run: |
+          if [ ${{ inputs.commands }} != "" ]; then
+            ${{ inputs.commands }}
+          fi
       - name: Cache pre-commit environments
         uses: actions/cache@v4
         with:
