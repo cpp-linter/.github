@@ -19,10 +19,7 @@ jobs:
         with:
           python-version: '3.x'
       - name: Run commands
-        run: |
-          if [ "${{ inputs.commands }}" != "" ]; then
-            ${{ inputs.commands }}
-          fi
+        run: if [ "${{ inputs.commands }}" != "" ]; then ${{ inputs.commands }} fi
       - name: Cache pre-commit environments
         uses: actions/cache@v4
         with:
