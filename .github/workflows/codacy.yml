@@ -1,0 +1,21 @@
+name: Upload coverage reports to Codacy 
+
+on:
+  workflow_call:
+    inputs:
+      path-to-report:
+        required: true
+        type: string
+        default: ./coverage.xml
+        description: The path to report
+
+jobs:
+  codacy-coverage-reporter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run codacy-coverage-reporter
+        uses: codacy/codacy-coverage-reporter-action@v1
+        with:
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          coverage-reports: ./coverage.xml
