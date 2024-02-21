@@ -24,19 +24,10 @@ jobs:
         if: github.ref != 'refs/heads/main'
         run: sphinx-build docs ${{ inputs.path-to-doc }}
 
-      - name: get artifact name
-        id: artifact-name
-        shell: python
-        run: |
-          import os
-          lib_name = "${{ github.repository }}".split("/")[1]
-          with open(os.environ.get("GITHUB_OUTPUT"), "a") as gh_out:
-              gh_out.write(f"lib-name={lib_name}\n")
-
       - name: Upload docs build as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ steps.artifact-name.outputs.lib-name }}_docs
+          name: ${{ github.event.repository.name }}_docs
           path: ${{ github.workspace }}/${{ inputs.path-to-doc }}
 
       - name: Upload to github pages
