@@ -35,7 +35,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: ${{ inputs.language }}
+        language: [ '${{ inputs.language }}' ]
 
     steps:
     - name: Checkout repository
