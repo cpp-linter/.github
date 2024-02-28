@@ -12,7 +12,7 @@ jobs:
         with:
           python-version: 3.x
       - name: Install dependencies
-        run: pip install mkdocs mkdocs-include-markdown-plugin mkdocs-material
+        run: pip install -r docs/requirements.txt
       - name: check mkdocs build
         if: github.ref != 'refs/heads/main'
         run: mkdocs build
