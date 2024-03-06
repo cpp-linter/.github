@@ -17,7 +17,7 @@ Wonder how to get started? Check out:
 
 ## Other Repositories
 
-In addition to cpp-linter, we have several other repositories that may interest you:
+In addition to the above, we have several other repositories that may be of interest to you:
 
 - [cpp-linter](https://github.com/cpp-linter/cpp-linter): cpp-linter core Python executable package.
 - [clang-tools-pip](https://github.com/cpp-linter/clang-tools-pip): Install clang-format, clang-tidy, clang-query, and clang-apply-replacements binaries with clang-tools CLI.
