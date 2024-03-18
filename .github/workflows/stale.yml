@@ -13,4 +13,4 @@ jobs:
                 it has not had recent activity.
                 It will be closed if no further activity occurs.
             # Better to exclude certain issues from being marked as stale
-            exempt-issue-labels: 'help wanted'
+            exempt-issue-labels: 'help wanted,security,pinned,bug'
