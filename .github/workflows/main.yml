@@ -9,3 +9,5 @@ on:
 jobs:
   main:
     uses: ./.github/workflows/pre-commit.yml
+  stale:
+    uses: ./.github/workflows/stale.yml
