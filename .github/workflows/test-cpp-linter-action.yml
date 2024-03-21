@@ -49,7 +49,7 @@ jobs:
 
       - name: Fail fast?!
         # if: steps.linter.outputs.checks-failed > 0
-        run: | 
+        run: |
           echo "some linter checks failed"
           echo "${{ steps.linter.outputs.checks-failed }}"
           echo "${{ env.checks-failed }}"
