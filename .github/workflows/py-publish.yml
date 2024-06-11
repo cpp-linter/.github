@@ -5,6 +5,8 @@ on:
 
 permissions:
   contents: read
+  id-token: write
+  attestations: write
 
 jobs:
   publish-to-pypi:
@@ -28,6 +30,11 @@ jobs:
 
     - name: Check distribution
       run: twine check dist/*
+
+    - name: Create attestations
+      uses: actions/attest-build-provenance@v1
+      with:
+        subject-path: 'dist/*'
 
     - name: Publish package (to TestPyPI)
       if: github.event_name == 'workflow_dispatch' && startsWith(github.repository, 'cpp-linter')
