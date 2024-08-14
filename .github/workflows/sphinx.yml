@@ -8,6 +8,11 @@ on:
         type: string
         default: docs/_build/html
         description: The docs path name
+      project-root:
+        required: false
+        type: string
+        default: '.'
+        description: The root directory of conrtaining the docs folder
 
 jobs:
   sphinx-deploy:
@@ -17,16 +22,19 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: 3.x
+
       - name: Install dependencies
+        working-directory: ${{ inputs.project-root }}
         run: pip install -r docs/requirements.txt -e .
 
       - name: Build docs
+        working-directory: ${{ inputs.project-root }}
         run: sphinx-build docs ${{ inputs.path-to-doc }}
 
       - name: Upload docs build as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ github.event.repository.name }}_docs
+          name: ${{ inputs.project-root == '.' && github.event.repository.name || inputs.project-root }}_docs
           path: ${{ github.workspace }}/${{ inputs.path-to-doc }}
 
       - name: Upload to github pages
