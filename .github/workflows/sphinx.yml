@@ -34,7 +34,7 @@ jobs:
       - name: Upload docs build as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ github.event.repository.name }}_docs
+          name: ${{ inputs.project-root == '.' && github.event.repository.name || inputs.project-root }}_docs
           path: ${{ github.workspace }}/${{ inputs.path-to-doc }}
 
       - name: Upload to github pages
