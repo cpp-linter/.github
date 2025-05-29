@@ -6,6 +6,7 @@
 
 ## Cpp Linter
 
+<!-- markdownlint-disable MD036 -->
 **Automated linting for your C/C++ code**
 
 ### Get Started
