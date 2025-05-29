@@ -6,15 +6,32 @@
 
 ## Cpp Linter
 
-**Lint your C/C++ code in an automated workflow**
+<!-- markdownlint-disable MD036 -->
+**Automated linting for your C/C++ code**
 
-Including analysis regarding code formatting, diagnosing, and fixing typical programming errors.
+### Get Started
 
-Wonder how to get started? check out:
+Integrate Cpp Linter into your workflow with:
 
-* [cpp-linter-action](https://github.com/cpp-linter/cpp-linter-action) as a CI workflow step
-* [cpp-linter-hooks](https://github.com/cpp-linter/cpp-linter-hooks) as a pre-commit workflow step
+* [cpp-linter-action](https://github.com/cpp-linter/cpp-linter-action) — GitHub Action for CI pipelines
+* [cpp-linter-hooks](https://github.com/cpp-linter/cpp-linter-hooks) — Pre-commit hooks for local development
+
+### Clang Tools — Simplified
+
+We provide ready-to-use **binaries** and **Docker images** of key `clang-tools`:
+
+* [clang-tools-static-binaries](https://github.com/cpp-linter/clang-tools-static-binaries)
+* [clang-tools-docker](https://github.com/cpp-linter/clang-tools-docker)
+
+### Easy Installation
+
+Prefer modern package managers? Install `clang-format`, `clang-tidy`, `clang-query`, and more via:
+
+* [pip](https://github.com/cpp-linter/clang-tools-pip)
+* [asdf](https://github.com/cpp-linter/asdf-clang-tools)
 
 ## Contributing 💪
 
-Thanks for your interest in contributing to [cpp-linter](https://github.com/cpp-linter)! We welcome feedback, bug reports, and feature requests from the community!
+Thanks for your interest in contributing to [cpp-linter](https://github.com/cpp-linter)!
+
+We welcome feedback, bug reports, and feature requests from the community!
