@@ -13,10 +13,8 @@ jobs:
       - name: Download all artifacts
         uses: actions/download-artifact@v5
         with:
-          path: ci-artifacts
           pattern: coverage-data-*
-
-      - run: mv ci-artifacts/**/.coverage* ./
+          merge-multiple: true
 
       - name: Setup python
         uses: actions/setup-python@v5
