@@ -1,0 +1,25 @@
+version: "0.2"
+language: en
+words:
+  - Abril
+  - autobuild
+  - autolabeler
+  - binstall
+  - Fatface
+  - htmlcov
+  - mkdocs
+  - peaceiris
+  - pipx
+  - pypi
+  - rustup
+  - sarif
+  - setuptools
+  - testpypi
+  - venv
+  - xianpengshen
+ignorePaths:
+  - .env/**
+  - .venv/**
+  - env/**
+  - venv/**
+  - .gitignore
