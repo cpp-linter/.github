@@ -38,9 +38,18 @@ jobs:
       contents: read
     steps:
       # checkout only needed for config files
-      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - name: Checkout ${{ github.repository }} repo
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           persist-credentials: false
+          path: project-repo
+      - name: Checkout cpp-linter/.github (org) repo
+        # needed for certain config and script files
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          persist-credentials: false
+          repository: cpp-linter/.github
+          path: org-repo
       - run: rustup update --no-self-update
       - name: Install cargo-binstall
         uses: cargo-bins/cargo-binstall@2bb61346d075e720d4c3da92f23b6d612d5a7543 # v1.15.3
@@ -51,11 +60,12 @@ jobs:
       - name: conventional-commit
         run: >-
           echo "${{ github.event.pull_request.title }}"
-          | committed --config .github/committed.toml --commit-file -
+          | committed --config ${{ github.workspace }}/org-repo/.github/committed.toml --commit-file -
       - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
         with:
           node-version: latest
       - name: spell check
+        working-directory: project-repo
         run: >-
           echo "${{ github.event.pull_request.title }}"
           | npx cspell-cli lint stdin
