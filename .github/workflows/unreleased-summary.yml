@@ -1,0 +1,44 @@
+on:
+  workflow_call:
+
+jobs:
+  summarize-unreleased:
+    runs-on: ubuntu-latest
+    # These permissions must be granted in the calling workflow .yml file
+    permissions:
+      contents: read
+      pull-requests: read
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+          path: project-repo
+      - name: Checkout org repo
+        # needed for certain config and script files
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          persist-credentials: false
+          repository: cpp-linter/.github
+          path: org-repo
+      - name: Install uv
+        uses: astral-sh/setup-uv@557e51de59eb14aaaba2ed9621916900a91d50c6 # v6.6.1
+        with:
+          enable-cache: true
+          cache-dependency-glob: ${{ github.workspace }}/project-repo/uv.lock
+      - name: Run git-cliff
+        working-directory: project-repo
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_REPO: ${{ github.repository }}
+          GIT_CLIFF_CONFIG: ${{ github.workspace }}/org-repo/.github/cliff.toml
+          UV_CONSTRAINT: ${{ github.workspace }}/org-repo/.github/requirements.txt
+        run: >-
+          uvx
+          git-cliff
+          --unreleased
+          --bump
+          --output
+          "${GITHUB_STEP_SUMMARY}"
+          --strip
+          header
