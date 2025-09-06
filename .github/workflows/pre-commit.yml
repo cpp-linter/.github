@@ -34,17 +34,19 @@ jobs:
     name: Check PR title
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
+    # The calling workflow must grant these permissions.
     permissions:
       contents: read
     steps:
-      # checkout only needed for config files
       - name: Checkout ${{ github.repository }} repo
+        # needed for cspell.config.yml (project-specific)
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           persist-credentials: false
+          repository: ${{ github.repository }}
           path: project-repo
       - name: Checkout cpp-linter/.github (org) repo
-        # needed for certain config and script files
+        # needed for committed.toml config (org-specific)
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           persist-credentials: false
