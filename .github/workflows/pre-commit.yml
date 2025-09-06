@@ -44,6 +44,7 @@ jobs:
         with:
           persist-credentials: false
           repository: ${{ github.repository }}
+          ref: ${{ github.sha }}
           path: project-repo
       - name: Checkout cpp-linter/.github (org) repo
         # needed for committed.toml config (org-specific)
