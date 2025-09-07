@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD036 MD041 MD033 -->
+
 <p align="center">
     <img src="/assets/readme-banner-small.png" width="512" height="141" alt="cpp-linter_brand_logo" />
 </p>
@@ -6,7 +8,6 @@
 
 ## Cpp Linter
 
-<!-- markdownlint-disable MD036 -->
 **Automated linting for your C/C++ code**
 
 ### Get Started
