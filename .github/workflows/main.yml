@@ -6,8 +6,16 @@ on:
   pull_request:
     branches: [main]
 
+permissions: {}
+
 jobs:
   main:
+    permissions:
+      contents: read
     uses: ./.github/workflows/pre-commit.yml
   stale:
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
     uses: ./.github/workflows/stale.yml
