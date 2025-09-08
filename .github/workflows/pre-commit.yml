@@ -22,7 +22,9 @@ jobs:
           python-version: '3.x'
       - name: Run commands
         if: inputs.commands
-        run: ${{ inputs.commands }}
+        run: ${INPUTS_COMMANDS}
+        env:
+          INPUTS_COMMANDS: ${{ inputs.commands }}
       - name: Cache pre-commit environments
         uses: actions/cache@0400d5f644dc74513175e3cd8d07132dd4860809 # v4.2.4
         with:
@@ -61,14 +63,16 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
       - name: conventional-commit
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
         run: >-
-          echo "${{ github.event.pull_request.title }}"
+          echo "${PR_TITLE}"
           | committed --config ${{ github.workspace }}/org-repo/.github/committed.toml --commit-file -
       - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
         with:
           node-version: latest
       - name: spell check
         working-directory: project-repo
-        run: >-
-          echo "${{ github.event.pull_request.title }}"
-          | npx cspell-cli lint stdin
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: echo "${PR_TITLE}" | npx cspell-cli lint stdin

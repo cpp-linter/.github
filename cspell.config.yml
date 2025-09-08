@@ -17,6 +17,7 @@ words:
   - testpypi
   - venv
   - xianpengshen
+  - zizmor
 ignorePaths:
   - .env/**
   - .venv/**
