@@ -60,12 +60,13 @@ jobs:
         with:
           version: ${{ vars.NUSHELL_VERSION || '*' }}
       - name: Get PR title
+        # working-directory: project-repo
         shell: nu {0}
         id: get-title
         env:
           GH_REPO: ${{ github.repository }}
           GH_TOKEN: ${{ github.token }}
-          PR_NUMBER: ${{ github.event_path.pr_number }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |-
           let pr_title = (
             (^gh pr view $env.PR_NUMBER --repo $env.GH_REPO --json "title")
