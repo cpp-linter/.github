@@ -83,7 +83,7 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
       - name: conventional-commit
         env:
-          PR_TITLE: ${{ steps.get-title.outputs.title }}
+          PR_TITLE: "${{ steps.get-title.outputs.title }}"
           COMMITTED_CONFIG: ${{ github.workspace }}/org-repo/.github/committed.toml
         shell: nu {0}
         run: $env.PR_TITLE | ^committed --config $env.COMMITTED_CONFIG --commit-file -
@@ -94,5 +94,5 @@ jobs:
         working-directory: project-repo
         shell: nu {0}
         env:
-          PR_TITLE: ${{ steps.get-title.outputs.title }}
+          PR_TITLE: "${{ steps.get-title.outputs.title }}"
         run: $env.PR_TITLE | ^npx cspell-cli lint stdin
