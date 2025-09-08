@@ -2,7 +2,7 @@ name: Run pre-commit
 
 on:
   workflow_call:
-     inputs:
+    inputs:
       commands:
         required: false
         type: string
@@ -19,7 +19,7 @@ jobs:
       - uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6.0.0
         id: python-setup
         with:
-          python-version: '3.x'
+          python-version: "3.x"
       - name: Run commands
         if: inputs.commands
         run: ${INPUTS_COMMANDS}
@@ -28,7 +28,7 @@ jobs:
       - name: Cache pre-commit environments
         uses: actions/cache@0400d5f644dc74513175e3cd8d07132dd4860809 # v4.2.4
         with:
-          path: '~/.cache/pre-commit'
+          path: "~/.cache/pre-commit"
           key: pre-commit-${{ steps.python-setup.outputs.python-version }}-${{ hashFiles('.pre-commit-config.yaml') }}
       - run: pipx run pre-commit run --show-diff-on-failure --color=always --all-files
 
@@ -55,6 +55,23 @@ jobs:
           persist-credentials: false
           repository: cpp-linter/.github
           path: org-repo
+      - name: Setup Nu shell
+        uses: hustcer/setup-nu@985d59ec83ae3e3418f9d36471cda38b9d8b9879 # v3.20
+        with:
+          version: ${{ vars.NUSHELL_VERSION || '*' }}
+      - name: Get PR title
+        shell: nu {0}
+        id: get-title
+        env:
+          GH_REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event_path.pr_number }}
+        run: |-
+          let pr_title = (
+            (^gh pr view $env.PR_NUMBER --repo $env.GH_REPO --json "title")
+            | from json
+            | get title
+          )
+          $"title=($pr_title)\n" | save --append $env.GITHUB_OUTPUT
       - run: rustup update --no-self-update
       - name: Install cargo-binstall
         uses: cargo-bins/cargo-binstall@2bb61346d075e720d4c3da92f23b6d612d5a7543 # v1.15.3
@@ -64,15 +81,16 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
       - name: conventional-commit
         env:
-          PR_TITLE: ${{ github.event.pull_request.title }}
-        run: >-
-          echo "${PR_TITLE}"
-          | committed --config ${{ github.workspace }}/org-repo/.github/committed.toml --commit-file -
+          PR_TITLE: ${{ steps.get-title.outputs.title }}
+          COMMITTED_CONFIG: ${{ github.workspace }}/org-repo/.github/committed.toml
+        shell: nu {0}
+        run: $env.PR_TITLE | ^committed --config $env.COMMITTED_CONFIG --commit-file -
       - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
         with:
           node-version: latest
       - name: spell check
         working-directory: project-repo
+        shell: nu {0}
         env:
-          PR_TITLE: ${{ github.event.pull_request.title }}
-        run: echo "${PR_TITLE}" | npx cspell-cli lint stdin
+          PR_TITLE: ${{ steps.get-title.outputs.title }}
+        run: $env.PR_TITLE | ^npx cspell-cli lint stdin
