@@ -64,6 +64,7 @@ jobs:
         id: get-title
         env:
           GH_REPO: ${{ github.repository }}
+          GH_TOKEN: ${{ github.token }}
           PR_NUMBER: ${{ github.event_path.pr_number }}
         run: |-
           let pr_title = (
