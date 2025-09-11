@@ -2,6 +2,8 @@ name: "Close stale issues"
 
 on: [workflow_call]
 
+permissions: {}
+
 jobs:
   stale:
     permissions:
