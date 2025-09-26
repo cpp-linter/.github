@@ -19,10 +19,11 @@ Integrate Cpp Linter into your workflow with:
 
 ### Clang Tools — Simplified
 
-We provide ready-to-use **binaries** and **Docker images** of key `clang-tools`:
+We provide ready-to-use **binaries**, **Docker images** and **Python wheels** of key `clang-tools`:
 
 * [clang-tools-static-binaries](https://github.com/cpp-linter/clang-tools-static-binaries)
 * [clang-tools-docker](https://github.com/cpp-linter/clang-tools-docker)
+* [clang-tools-wheel](https://github.com/cpp-linter/clang-tools-wheel)
 
 ### Easy Installation
 
