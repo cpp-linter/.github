@@ -8,6 +8,8 @@
 
 ## Cpp Linter
 
+[![Website](https://img.shields.io/static/v1?label=Website&message=cpp-linter.github.io&color=yellow)](https://cpp-linter.github.io/)
+
 **Automated linting for your C/C++ code**
 
 ### Get Started
