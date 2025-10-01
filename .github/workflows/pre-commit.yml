@@ -66,7 +66,7 @@ jobs:
           echo "title=${pr_title}" >> "${GITHUB_OUTPUT}"
       - run: rustup update --no-self-update
       - name: Install cargo-binstall
-        uses: cargo-bins/cargo-binstall@2bb61346d075e720d4c3da92f23b6d612d5a7543 # v1.15.3
+        uses: cargo-bins/cargo-binstall@38e8f5e4c386b611d51e8aa997b9a06a3c8eb67a # v1.15.6
       - name: Install committed
         run: cargo binstall -y committed
         env:
