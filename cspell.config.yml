@@ -5,9 +5,13 @@ words:
   - autobuild
   - autolabeler
   - binstall
+  - endfor
+  - endmacro
   - Fatface
   - htmlcov
+  - hustcer
   - mkdocs
+  - NUSHELL
   - peaceiris
   - pyproject
   - pipx
@@ -16,6 +20,8 @@ words:
   - sarif
   - setuptools
   - testpypi
+  - timeit
+  - topo
   - venv
   - xianpengshen
   - zizmor
