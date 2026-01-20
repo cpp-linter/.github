@@ -18,6 +18,7 @@ words:
   - setuptools
   - testpypi
   - venv
+  - virtualenv
   - xianpengshen
   - zizmor
 ignorePaths:
