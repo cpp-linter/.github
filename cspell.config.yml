@@ -6,6 +6,7 @@ words:
   - autolabeler
   - binstall
   - Fatface
+  - filelock
   - htmlcov
   - mkdocs
   - peaceiris
