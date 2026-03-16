@@ -17,7 +17,7 @@ jobs:
         # In order to use the Snyk Action you will need to have a Snyk API token.
         # More details in https://github.com/snyk/actions#getting-your-snyk-token
         # or you can sign up for free at https://snyk.io/login
-        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }} # zizmor: ignore[secrets-outside-env]
       with:
         image: xianpengshen/clang-tools:all
         args: --severity-threshold=high --file=Dockerfile.all
