@@ -83,7 +83,7 @@ jobs:
         with:
           node-version: latest
       - name: spell check
-        working-directory: project-repo
         env:
           PR_TITLE: "${{ steps.get-title.outputs.title }}"
-        run: echo "${PR_TITLE}" | npx cspell-cli lint stdin
+          CSPELL_CONFIG: ${{ github.workspace }}/org-repo/cspell.config.yml
+        run: echo "${PR_TITLE}" | npx cspell-cli lint --config "${CSPELL_CONFIG}" stdin
