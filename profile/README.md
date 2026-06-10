@@ -1,39 +1,69 @@
 <!-- markdownlint-disable MD036 MD041 MD033 -->
 
 <p align="center">
-    <img src="/assets/readme-banner-small.png" width="512" height="141" alt="cpp-linter_brand_logo" />
+    <img src="../assets/readme-banner-small.png" width="512" height="141" alt="cpp-linter brand logo" />
+</p>
+
+<p align="center">
+    <strong>Automated C/C++ linting and formatting for your CI/CD pipelines and local workflows.</strong>
+</p>
+
+<p align="center">
+    <a href="https://cpp-linter.github.io/"><img src="https://img.shields.io/static/v1?label=Docs&message=cpp-linter.github.io&color=blue" alt="Documentation" /></a>
+    <a href="https://github.com/cpp-linter/.github/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT" /></a>
+    <a href="https://github.com/cpp-linter/cpp-linter-action"><img src="https://img.shields.io/github/stars/cpp-linter/cpp-linter-action?style=social" alt="GitHub stars" /></a>
 </p>
 
 ---
 
-## Cpp Linter
+## 📖 About
 
-[![Website](https://img.shields.io/static/v1?label=Website&message=cpp-linter.github.io&color=yellow)](https://cpp-linter.github.io/)
+**cpp-linter** bundles the power of `clang-format`, `clang-tidy`, `clang-query`, and other LLVM tools into packages that are easy to install, integrate, and maintain. Whether you’re linting a single file locally or enforcing code quality across dozens of repos in CI, cpp-linter has you covered.
 
-### Get Started
+We target C/C++ developers and DevOps engineers who want **reliable clang tooling without the build-from-source headache**.
 
-Integrate Cpp Linter into your workflow with:
+---
 
-* [cpp-linter-action](https://github.com/cpp-linter/cpp-linter-action) — GitHub Action for CI pipelines
-* [cpp-linter-hooks](https://github.com/cpp-linter/cpp-linter-hooks) — Pre-commit hooks for local development
+## 🚀 Get Started
 
-### Clang Tools — Simplified
+Integrate cpp-linter into your workflow in minutes:
 
-We provide ready-to-use **binaries**, **Docker images**, and **Python wheels** of key `clang-tools`:
+- **[cpp-linter-action](https://github.com/cpp-linter/cpp-linter-action)** — GitHub Action that runs `clang-format` and `clang-tidy` on PRs and pushes, posting inline annotations.
+- **[cpp-linter-hooks](https://github.com/cpp-linter/cpp-linter-hooks)** — [pre-commit](https://pre-commit.com/) hooks for local development — catch issues before they hit CI.
 
-* [clang-tools-static-binaries](https://github.com/cpp-linter/clang-tools-static-binaries)
-* [clang-tools-docker](https://github.com/cpp-linter/clang-tools-docker)
-* [clang-tools-wheel](https://github.com/cpp-linter/clang-tools-wheel)
+---
 
-### Easy Installation
+## 🔧 Clang Tools — Simplified
+
+We provide ready-to-use **binaries**, **Docker images**, and **Python wheels** of key clang tools:
+
+| Package | Description |
+|---------|-------------|
+| [clang-tools-static-binaries](https://github.com/cpp-linter/clang-tools-static-binaries) | Statically-linked `clang-format`, `clang-tidy`, `clang-query` binaries |
+| [clang-tools-docker](https://github.com/cpp-linter/clang-tools-docker) | Docker images with pre-installed clang tools |
+| [clang-tools-wheel](https://github.com/cpp-linter/clang-tools-wheel) | Python wheels for easy distribution |
+
+---
+
+## 📦 Easy Installation
 
 Prefer modern package managers? Install `clang-format`, `clang-tidy`, `clang-query`, and more via:
 
-* [pip](https://github.com/cpp-linter/clang-tools-pip)
-* [asdf](https://github.com/cpp-linter/asdf-clang-tools)
+- **[pip](https://github.com/cpp-linter/clang-tools-pip)** — `pip install clang-tools`
+- **[asdf](https://github.com/cpp-linter/asdf-clang-tools)** — `asdf plugin add clang-tools`
 
-## Contributing 💪
+---
 
-Thanks for your interest in contributing to [cpp-linter](https://github.com/cpp-linter)!
+## 🤝 Contributing
 
-We welcome feedback, bug reports, and feature requests from the community!
+We welcome contributions of all kinds — bug reports, feature requests, documentation improvements, and code.
+
+- 📋 Read our [Code of Conduct](https://github.com/cpp-linter/.github/blob/main/CODE_OF_CONDUCT.md)
+- 🔧 Check individual repos for their `CONTRIBUTING.md` guides
+- 💬 Join the discussion on [GitHub Discussions](https://github.com/orgs/cpp-linter/discussions)
+
+---
+
+<p align="center">
+    <sub>Made with ❤️ by the cpp-linter community</sub>
+</p>
