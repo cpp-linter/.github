@@ -85,5 +85,10 @@ jobs:
       - name: spell check
         env:
           PR_TITLE: "${{ steps.get-title.outputs.title }}"
-          CSPELL_CONFIG: ${{ github.workspace }}/org-repo/cspell.config.yml
-        run: echo "${PR_TITLE}" | npx cspell-cli lint --config "${CSPELL_CONFIG}" stdin
+        run: |
+          if [ -f project-repo/cspell.config.yml ]; then
+            CSPELL_CONFIG="project-repo/cspell.config.yml"
+          else
+            CSPELL_CONFIG="org-repo/cspell.config.yml"
+          fi
+          echo "${PR_TITLE}" | npx cspell-cli lint --config "${CSPELL_CONFIG}" stdin
