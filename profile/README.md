@@ -18,7 +18,7 @@
 
 ## 📖 About
 
-**cpp-linter** bundles the power of `clang-format`, `clang-tidy`, `clang-query`, and other LLVM tools into packages that are easy to install, integrate, and maintain. Whether you’re linting a single file locally or enforcing code quality across dozens of repos in CI, cpp-linter has you covered.
+**cpp-linter** bundles the power of `clang-format`, `clang-tidy`, and other LLVM tools into packages that are easy to install, integrate, and maintain. Whether you’re linting a single file locally or enforcing code quality across dozens of repos in CI, cpp-linter has you covered.
 
 We target C/C++ developers and DevOps engineers who want **reliable clang tooling without the build-from-source headache**.
 
@@ -39,9 +39,9 @@ We provide ready-to-use **binaries**, **Docker images**, and **Python wheels** o
 
 | Package | Description |
 |---------|-------------|
-| [clang-tools-static-binaries](https://github.com/cpp-linter/clang-tools-static-binaries) | Statically-linked `clang-format`, `clang-tidy`, `clang-query` binaries |
-| [clang-tools-docker](https://github.com/cpp-linter/clang-tools-docker) | Docker images with pre-installed clang tools |
-| [clang-tools-wheel](https://github.com/cpp-linter/clang-tools-wheel) | Python wheels for easy distribution |
+| [clang-tools-static-binaries](https://github.com/cpp-linter/clang-tools-static-binaries) | Statically-linked `clang-format`, `clang-tidy`, `clang-query`, and `clang-apply-replacements` binaries |
+| [clang-tools-docker](https://github.com/cpp-linter/clang-tools-docker) | Docker images with pre-installed `clang-format` and `clang-tidy` |
+| [clang-tools-wheel](https://github.com/cpp-linter/clang-tools-wheel) | Redistribute `clang-format` and `clang-tidy` Python wheels |
 
 ---
 
@@ -50,7 +50,7 @@ We provide ready-to-use **binaries**, **Docker images**, and **Python wheels** o
 Prefer modern package managers? Install `clang-format`, `clang-tidy`, `clang-query`, and more via:
 
 - **[pip](https://github.com/cpp-linter/clang-tools-pip)** — `pip install clang-tools`
-- **[asdf](https://github.com/cpp-linter/asdf-clang-tools)** — `asdf plugin add clang-tools`
+- **[asdf](https://github.com/cpp-linter/asdf-clang-tools)** — `asdf plugin add clang-tools https://github.com/cpp-linter/asdf-clang-tools`
 
 ---
 
