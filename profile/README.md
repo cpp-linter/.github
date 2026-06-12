@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-    <a href="https://cpp-linter.github.io/"><img src="https://img.shields.io/static/v1?label=Docs&message=cpp-linter.github.io&color=blue" alt="Documentation" /></a>
+    <a href="https://cpp-linter.github.io/"><img src="https://img.shields.io/static/v1?label=Website&message=cpp-linter.github.io&color=blue" alt="Documentation" /></a>
     <a href="https://github.com/cpp-linter/.github/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT" /></a>
     <a href="https://github.com/cpp-linter/cpp-linter-action"><img src="https://img.shields.io/github/stars/cpp-linter/cpp-linter-action?style=social" alt="GitHub stars" /></a>
 </p>
