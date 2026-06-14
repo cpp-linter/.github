@@ -56,17 +56,17 @@ Prefer modern package managers? Install `clang-format`, `clang-tidy`, `clang-que
 
 ## 👥 Maintainers
 
-<table align="center">
+<table>
   <tr>
-    <td align="center">
+    <td>
       <a href="https://github.com/shenxianpeng">
-        <img src="https://github.com/shenxianpeng.png" width="100px;" alt="shenxianpeng" /><br />
+        <img src="https://github.com/shenxianpeng.png" width="80" alt="shenxianpeng" /><br />
         <sub><b>shenxianpeng</b></sub>
       </a>
     </td>
-    <td align="center">
+    <td>
       <a href="https://github.com/2bndy5">
-        <img src="https://github.com/2bndy5.png" width="100px;" alt="2bndy5" /><br />
+        <img src="https://github.com/2bndy5.png" width="80" alt="2bndy5" /><br />
         <sub><b>2bndy5</b></sub>
       </a>
     </td>
