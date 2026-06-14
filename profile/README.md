@@ -54,6 +54,27 @@ Prefer modern package managers? Install `clang-format`, `clang-tidy`, `clang-que
 
 ---
 
+## 👥 Maintainers
+
+<table align="center">
+  <tr>
+    <td align="center">
+      <a href="https://github.com/shenxianpeng">
+        <img src="https://github.com/shenxianpeng.png" width="100px;" alt="shenxianpeng" /><br />
+        <sub><b>shenxianpeng</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/2bndy5">
+        <img src="https://github.com/2bndy5.png" width="100px;" alt="2bndy5" /><br />
+        <sub><b>2bndy5</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
+---
+
 ## 🤝 Contributing
 
 We welcome contributions of all kinds — bug reports, feature requests, documentation improvements, and code.
