@@ -60,14 +60,14 @@ Prefer modern package managers? Install `clang-format`, `clang-tidy`, `clang-que
   <tr>
     <td>
       <a href="https://github.com/shenxianpeng">
-        <img src="https://github.com/shenxianpeng.png" width="80" alt="shenxianpeng" /><br />
-        <sub><b>shenxianpeng</b></sub>
+        <img src="https://github.com/shenxianpeng.png" width="100" alt="shenxianpeng" /><br />
+        <b>shenxianpeng</b>
       </a>
     </td>
     <td>
       <a href="https://github.com/2bndy5">
-        <img src="https://github.com/2bndy5.png" width="80" alt="2bndy5" /><br />
-        <sub><b>2bndy5</b></sub>
+        <img src="https://github.com/2bndy5.png" width="100" alt="2bndy5" /><br />
+        <b>2bndy5</b>
       </a>
     </td>
   </tr>
