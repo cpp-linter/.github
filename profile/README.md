@@ -39,9 +39,11 @@ We provide ready-to-use **binaries**, **Docker images**, and **Python wheels** o
 
 | Package | Description |
 |---------|-------------|
-| [clang-tools-static-binaries](https://github.com/cpp-linter/clang-tools-static-binaries) | Statically-linked `clang-format`, `clang-tidy`, `clang-query`, and `clang-apply-replacements` binaries |
+| [clang-tools-static-binaries](https://github.com/cpp-linter/clang-tools-static-binaries) | Statically-linked `clang-format`, `clang-tidy`, `clang-query`, `clang-apply-replacements`, and `clang-include-cleaner` binaries |
 | [clang-tools-docker](https://github.com/cpp-linter/clang-tools-docker) | Docker images with pre-installed `clang-format` and `clang-tidy` |
 | [clang-tools-wheel](https://github.com/cpp-linter/clang-tools-wheel) | Redistribute `clang-format` and `clang-tidy` Python wheels |
+| [clang-apply-replacements](https://github.com/cpp-linter/clang-apply-replacements) | Standalone Python wheel for `clang-apply-replacements` |
+| [clang-include-cleaner](https://github.com/cpp-linter/clang-include-cleaner) | Standalone Python wheel for `clang-include-cleaner` — detects unused `#include` directives |
 
 ---
 
@@ -49,7 +51,7 @@ We provide ready-to-use **binaries**, **Docker images**, and **Python wheels** o
 
 Prefer modern package managers? Install `clang-format`, `clang-tidy`, `clang-query`, and more via:
 
-- **[pip](https://github.com/cpp-linter/clang-tools-pip)** — `pip install clang-tools`
+- **[pip](https://github.com/cpp-linter/clang-tools-pip)** — `pip install clang-tools` — installs static binaries or Python wheels for `clang-format`, `clang-tidy`, `clang-query`, `clang-apply-replacements`, and `clang-include-cleaner`
 - **[asdf](https://github.com/cpp-linter/asdf-clang-tools)** — `asdf plugin add clang-tools https://github.com/cpp-linter/asdf-clang-tools`
 
 ---
