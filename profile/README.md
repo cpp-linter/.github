@@ -53,6 +53,7 @@ Prefer modern package managers? Install `clang-format`, `clang-tidy`, `clang-que
 
 - **[pip](https://github.com/cpp-linter/clang-tools-pip)** — `pip install clang-tools` — installs static binaries or Python wheels for `clang-format`, `clang-tidy`, `clang-query`, `clang-apply-replacements`, and `clang-include-cleaner`
 - **[asdf](https://github.com/cpp-linter/asdf-clang-tools)** — `asdf plugin add clang-tools https://github.com/cpp-linter/asdf-clang-tools`
+- **[Homebrew Tap](https://github.com/cpp-linter/homebrew-tap)** — `brew tap cpp-linter/tap && brew install clang-tools` — installs pre-built static binaries for `clang-format`, `clang-tidy`, `clang-query`, `clang-apply-replacements`, and `clang-include-cleaner`
 
 ---
 
