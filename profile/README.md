@@ -18,7 +18,14 @@
 
 ## 📖 About
 
-**cpp-linter** bundles the power of `clang-format`, `clang-tidy`, and other LLVM tools into packages that are easy to install, integrate, and maintain. Whether you’re linting a single file locally or enforcing code quality across dozens of repos in CI, cpp-linter has you covered.
+**cpp-linter** repackages upstream `clang-format`, `clang-tidy`, and other LLVM tools into
+ready-to-use packages (static binaries, Docker images, Python wheels) — making them easy to
+install and integrate without building from source. Whether you’re linting a single file locally
+or enforcing code quality across dozens of repos in CI, cpp-linter has you covered.
+
+> **We do not develop or maintain the clang tools themselves.** cpp-linter is a redistribution
+> layer: we pre-build and publish upstream LLVM releases. For tool bugs, features, or behavioral
+> issues, please report to the [LLVM project](https://github.com/llvm/llvm-project).
 
 We target C/C++ developers and DevOps engineers who want **reliable clang tooling without the build-from-source headache**.
 
@@ -33,9 +40,9 @@ Integrate cpp-linter into your workflow in minutes:
 
 ---
 
-## 🔧 Clang Tools — Simplified
+## 🔧 Clang Tools — Pre-packaged
 
-We provide ready-to-use **binaries**, **Docker images**, and **Python wheels** of key clang tools:
+We pre-build and publish ready-to-use **binaries**, **Docker images**, and **Python wheels** of upstream clang tools:
 
 | Package | Description |
 |---------|-------------|
