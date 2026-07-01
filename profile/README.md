@@ -34,7 +34,7 @@ Not sure where to start? Pick the entry point that matches your workflow:
 | Catch issues **locally before committing** | [cpp-linter-hooks](https://github.com/cpp-linter/cpp-linter-hooks) | Add to your `.pre-commit-config.yaml` |
 | Install the clang tools as a **cross-platform CLI** *(most people)* | [pip: `clang-tools`](https://github.com/cpp-linter/clang-tools-pip) | `pip install clang-tools` |
 | Install on **macOS** the native way | [Homebrew tap](https://github.com/cpp-linter/homebrew-tap) | `brew tap cpp-linter/tap && brew install clang-tools` |
-| Manage tool **versions across a polyglot team** | [asdf](https://github.com/cpp-linter/asdf-clang-tools) | `asdf plugin add clang-tools <url>` |
+| Manage tool **versions across a polyglot team** | [asdf](https://github.com/cpp-linter/asdf-clang-tools) | `asdf plugin add clang-tools https://github.com/cpp-linter/asdf-clang-tools` |
 | Run inside **containers / custom CI images** | [clang-tools-docker](https://github.com/cpp-linter/clang-tools-docker) | Pull the image |
 | Just grab the **raw static binary** | [clang-tools-static-binaries](https://github.com/cpp-linter/clang-tools-static-binaries) | Download from releases |
 
