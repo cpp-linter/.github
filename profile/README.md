@@ -66,29 +66,23 @@ jobs:
 
 The action posts inline annotations, a step summary, and (optionally) PR review suggestions. See the [cpp-linter-action](https://github.com/cpp-linter/cpp-linter-action) docs for all inputs and outputs.
 
----
+<details>
+<summary>📦 <strong>More packages</strong> — lower-level & specialized builds</summary>
 
-## 📚 All projects
+<br />
 
-**Integrations**
-
-| Project | What it does |
-|---------|--------------|
-| [cpp-linter-action](https://github.com/cpp-linter/cpp-linter-action) | GitHub Action that runs `clang-format` and `clang-tidy` on PRs and pushes, posting inline annotations, thread comments, step summaries, and PR reviews. |
-| [cpp-linter-hooks](https://github.com/cpp-linter/cpp-linter-hooks) | [pre-commit](https://pre-commit.com/) hooks that run `clang-format` and `clang-tidy` locally — catch issues before they reach CI. |
-
-**Clang tool distributions**
+The tools above are built on a few underlying distributions you can also use directly:
 
 | Project | What it does |
 |---------|--------------|
-| [clang-tools-pip](https://github.com/cpp-linter/clang-tools-pip) | `pip install clang-tools` — cross-platform CLI that installs `clang-format`, `clang-tidy`, `clang-query`, `clang-apply-replacements`, and `clang-include-cleaner` (static binaries or Python wheels). |
-| [homebrew-tap](https://github.com/cpp-linter/homebrew-tap) | Homebrew formulae for the clang tools on macOS. |
-| [asdf-clang-tools](https://github.com/cpp-linter/asdf-clang-tools) | [asdf](https://asdf-vm.com/) plugin for version-managed installs across a team. |
-| [clang-tools-docker](https://github.com/cpp-linter/clang-tools-docker) | Docker images with `clang-format` and `clang-tidy` pre-installed for CI. |
 | [clang-tools-static-binaries](https://github.com/cpp-linter/clang-tools-static-binaries) | The upstream source: statically-linked binaries for Linux, macOS, and Windows that every other distribution builds on. |
 | [clang-tools-wheel](https://github.com/cpp-linter/clang-tools-wheel) | Python wheels that redistribute `clang-format` and `clang-tidy`. |
 | [clang-apply-replacements](https://github.com/cpp-linter/clang-apply-replacements) | Standalone Python wheel for `clang-apply-replacements`. |
 | [clang-include-cleaner](https://github.com/cpp-linter/clang-include-cleaner) | Standalone Python wheel for `clang-include-cleaner` — detects unused `#include` directives. |
+
+Browse every repository on the [organization page](https://github.com/cpp-linter).
+
+</details>
 
 ---
 
