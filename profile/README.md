@@ -24,6 +24,24 @@ We target C/C++ developers and DevOps engineers who want **reliable clang toolin
 
 ---
 
+## 🧭 Which one should I use?
+
+Not sure where to start? Pick the entry point that matches your workflow:
+
+| Your goal | Use this | How |
+|-----------|----------|-----|
+| Lint & format on **GitHub PRs / pushes** | [cpp-linter-action](https://github.com/cpp-linter/cpp-linter-action) | Add the action to your workflow |
+| Catch issues **locally before committing** | [cpp-linter-hooks](https://github.com/cpp-linter/cpp-linter-hooks) | Add to your `.pre-commit-config.yaml` |
+| Install the clang tools as a **cross-platform CLI** *(most people)* | [pip: `clang-tools`](https://github.com/cpp-linter/clang-tools-pip) | `pip install clang-tools` |
+| Install on **macOS** the native way | [Homebrew tap](https://github.com/cpp-linter/homebrew-tap) | `brew tap cpp-linter/tap && brew install clang-tools` |
+| Manage tool **versions across a polyglot team** | [asdf](https://github.com/cpp-linter/asdf-clang-tools) | `asdf plugin add clang-tools <url>` |
+| Run inside **containers / custom CI images** | [clang-tools-docker](https://github.com/cpp-linter/clang-tools-docker) | Pull the image |
+| Just grab the **raw static binary** | [clang-tools-static-binaries](https://github.com/cpp-linter/clang-tools-static-binaries) | Download from releases |
+
+> 💡 **New here?** For CI, start with **cpp-linter-action**. For local development, use **cpp-linter-hooks**. To install the underlying clang tools directly, `pip install clang-tools` works on every platform.
+
+---
+
 ## 🚀 Get Started
 
 Integrate cpp-linter into your workflow in minutes:
