@@ -20,7 +20,7 @@
 
 **cpp-linter** bundles the power of `clang-format`, `clang-tidy`, and other LLVM tools into packages that are easy to install, integrate, and maintain. Whether you’re linting a single file locally or enforcing code quality across dozens of repos in CI, cpp-linter has you covered.
 
-We target C/C++ developers and DevOps engineers who want **reliable clang tooling without the build-from-source headache**.
+We target C/C++ developers and DevOps engineers who want **reliable clang tooling without the build-from-source headache**. Our packages track the latest LLVM releases and cover Linux, macOS, and Windows on both x86_64 and Arm.
 
 ---
 
@@ -42,36 +42,53 @@ Not sure where to start? Pick the entry point that matches your workflow:
 
 ---
 
-## 🚀 Get Started
+## ⚡ Quick example
 
-Integrate cpp-linter into your workflow in minutes:
+Lint every pull request with **cpp-linter-action** — no local setup required:
 
-- **[cpp-linter-action](https://github.com/cpp-linter/cpp-linter-action)** — GitHub Action that runs `clang-format` and `clang-tidy` on PRs and pushes, posting inline annotations.
-- **[cpp-linter-hooks](https://github.com/cpp-linter/cpp-linter-hooks)** — [pre-commit](https://pre-commit.com/) hooks for local development — catch issues before they hit CI.
+```yaml
+# .github/workflows/cpp-linter.yml
+name: cpp-linter
+on: pull_request
+
+jobs:
+  cpp-linter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cpp-linter/cpp-linter-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          style: file       # format against your .clang-format
+          tidy-checks: ''    # analyze against your .clang-tidy
+```
+
+The action posts inline annotations, a step summary, and (optionally) PR review suggestions. See the [cpp-linter-action](https://github.com/cpp-linter/cpp-linter-action) docs for all inputs and outputs.
 
 ---
 
-## 🔧 Clang Tools — Simplified
+## 📚 All projects
 
-We provide ready-to-use **binaries**, **Docker images**, and **Python wheels** of key clang tools:
+**Integrations**
 
-| Package | Description |
-|---------|-------------|
-| [clang-tools-static-binaries](https://github.com/cpp-linter/clang-tools-static-binaries) | Statically-linked `clang-format`, `clang-tidy`, `clang-query`, `clang-apply-replacements`, and `clang-include-cleaner` binaries |
-| [clang-tools-docker](https://github.com/cpp-linter/clang-tools-docker) | Docker images with pre-installed `clang-format` and `clang-tidy` |
-| [clang-tools-wheel](https://github.com/cpp-linter/clang-tools-wheel) | Redistribute `clang-format` and `clang-tidy` Python wheels |
-| [clang-apply-replacements](https://github.com/cpp-linter/clang-apply-replacements) | Standalone Python wheel for `clang-apply-replacements` |
-| [clang-include-cleaner](https://github.com/cpp-linter/clang-include-cleaner) | Standalone Python wheel for `clang-include-cleaner` — detects unused `#include` directives |
+| Project | What it does |
+|---------|--------------|
+| [cpp-linter-action](https://github.com/cpp-linter/cpp-linter-action) | GitHub Action that runs `clang-format` and `clang-tidy` on PRs and pushes, posting inline annotations, thread comments, step summaries, and PR reviews. |
+| [cpp-linter-hooks](https://github.com/cpp-linter/cpp-linter-hooks) | [pre-commit](https://pre-commit.com/) hooks that run `clang-format` and `clang-tidy` locally — catch issues before they reach CI. |
 
----
+**Clang tool distributions**
 
-## 📦 Easy Installation
-
-Prefer modern package managers? Install `clang-format`, `clang-tidy`, `clang-query`, and more via:
-
-- **[pip](https://github.com/cpp-linter/clang-tools-pip)** — `pip install clang-tools` — installs static binaries or Python wheels for `clang-format`, `clang-tidy`, `clang-query`, `clang-apply-replacements`, and `clang-include-cleaner`
-- **[asdf](https://github.com/cpp-linter/asdf-clang-tools)** — `asdf plugin add clang-tools https://github.com/cpp-linter/asdf-clang-tools`
-- **[Homebrew Tap](https://github.com/cpp-linter/homebrew-tap)** — `brew tap cpp-linter/tap && brew install clang-tools` — installs pre-built static binaries for `clang-format`, `clang-tidy`, `clang-query`, `clang-apply-replacements`, and `clang-include-cleaner`
+| Project | What it does |
+|---------|--------------|
+| [clang-tools-pip](https://github.com/cpp-linter/clang-tools-pip) | `pip install clang-tools` — cross-platform CLI that installs `clang-format`, `clang-tidy`, `clang-query`, `clang-apply-replacements`, and `clang-include-cleaner` (static binaries or Python wheels). |
+| [homebrew-tap](https://github.com/cpp-linter/homebrew-tap) | Homebrew formulae for the clang tools on macOS. |
+| [asdf-clang-tools](https://github.com/cpp-linter/asdf-clang-tools) | [asdf](https://asdf-vm.com/) plugin for version-managed installs across a team. |
+| [clang-tools-docker](https://github.com/cpp-linter/clang-tools-docker) | Docker images with `clang-format` and `clang-tidy` pre-installed for CI. |
+| [clang-tools-static-binaries](https://github.com/cpp-linter/clang-tools-static-binaries) | The upstream source: statically-linked binaries for Linux, macOS, and Windows that every other distribution builds on. |
+| [clang-tools-wheel](https://github.com/cpp-linter/clang-tools-wheel) | Python wheels that redistribute `clang-format` and `clang-tidy`. |
+| [clang-apply-replacements](https://github.com/cpp-linter/clang-apply-replacements) | Standalone Python wheel for `clang-apply-replacements`. |
+| [clang-include-cleaner](https://github.com/cpp-linter/clang-include-cleaner) | Standalone Python wheel for `clang-include-cleaner` — detects unused `#include` directives. |
 
 ---
 
