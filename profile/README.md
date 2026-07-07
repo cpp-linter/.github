@@ -26,45 +26,17 @@
 
 ## 🧭 Which one should I use?
 
-Pick the package that matches your workflow:
-
-| Your goal | Use this | How |
-|-----------|----------|-----|
-| Lint & format on **GitHub PRs / pushes** | [cpp-linter-action](https://github.com/cpp-linter/cpp-linter-action) | Add the action to your workflow |
-| Catch issues **locally before committing** | [cpp-linter-hooks](https://github.com/cpp-linter/cpp-linter-hooks) | Add to your `.pre-commit-config.yaml` |
-| Install the clang tools as a **cross-platform CLI** *(most people)* | [pip: `clang-tools`](https://github.com/cpp-linter/clang-tools-pip) | `pip install clang-tools` |
-| Install on **macOS** the native way | [Homebrew tap](https://github.com/cpp-linter/homebrew-tap) | `brew tap cpp-linter/tap && brew install clang-tools` |
-| Manage tool **versions across a polyglot team** | [asdf](https://github.com/cpp-linter/asdf-clang-tools) | `asdf plugin add clang-tools https://github.com/cpp-linter/asdf-clang-tools` |
-| Run inside **containers / custom CI images** | [clang-tools-docker](https://github.com/cpp-linter/clang-tools-docker) | Pull the image |
-| Just grab the **raw static binary** | [clang-tools-static-binaries](https://github.com/cpp-linter/clang-tools-static-binaries) | Download from releases |
+| Your goal | Start here | One-liner |
+|-----------|------------|-----------|
+| <img src="https://img.shields.io/badge/-GitHub_Actions-2088FF?logo=githubactions&logoColor=white" height="22" /> Lint & format **PRs / pushes in CI** | [cpp-linter-action](https://github.com/cpp-linter/cpp-linter-action) | Add to `.github/workflows/` |
+| <img src="https://img.shields.io/badge/-pre--commit-F7B93E?logo=pre-commit&logoColor=white" height="22" /> Catch issues **before you commit** | [cpp-linter-hooks](https://github.com/cpp-linter/cpp-linter-hooks) | Add to `.pre-commit-config.yaml` |
+| <img src="https://img.shields.io/badge/-pip-3776AB?logo=pypi&logoColor=white" height="22" /> Install **cross-platform CLI** | [clang-tools-pip](https://github.com/cpp-linter/clang-tools-pip) | `pip install clang-tools` |
+| <img src="https://img.shields.io/badge/-Homebrew-FBB040?logo=homebrew&logoColor=white" height="22" /> Install natively on **macOS** | [homebrew-tap](https://github.com/cpp-linter/homebrew-tap) | `brew tap cpp-linter/tap && brew install clang-tools` |
+| <img src="https://img.shields.io/badge/-asdf-4B8BBE?logo=&logoColor=white" height="22" /> Manage versions in a **polyglot team** | [asdf-clang-tools](https://github.com/cpp-linter/asdf-clang-tools) | `asdf plugin add clang-tools` |
+| <img src="https://img.shields.io/badge/-Docker-2496ED?logo=docker&logoColor=white" height="22" /> Use **containers / custom CI images** | [clang-tools-docker](https://github.com/cpp-linter/clang-tools-docker) | `docker pull ...` |
+| <img src="https://img.shields.io/badge/-Binary-555555?logo=files&logoColor=white" height="22" /> Grab the **raw static binary** | [clang-tools-static-binaries](https://github.com/cpp-linter/clang-tools-static-binaries) | Download from releases |
 
 > 💡 **New here?** For CI, start with **cpp-linter-action**. For local development, use **cpp-linter-hooks**. To install the underlying clang tools directly, `pip install clang-tools` works on every platform.
-
----
-
-## ⚡ Quick example
-
-Lint every pull request with **cpp-linter-action** — no local setup required:
-
-```yaml
-# .github/workflows/cpp-linter.yml
-name: cpp-linter
-on: pull_request
-
-jobs:
-  cpp-linter:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: cpp-linter/cpp-linter-action@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          style: file       # format against your .clang-format
-          tidy-checks: ''    # analyze against your .clang-tidy
-```
-
-The action posts inline annotations, a step summary, and (optionally) PR review suggestions. See the [cpp-linter-action](https://github.com/cpp-linter/cpp-linter-action) docs for all inputs and outputs.
 
 <details>
 <summary>📦 <strong>More packages</strong> — lower-level & specialized builds</summary>
