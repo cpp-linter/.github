@@ -20,26 +20,13 @@
 
 ## 📖 About
 
-**cpp-linter** bundles the power of `clang-format`, `clang-tidy`, and other LLVM tools into packages that are easy to install, integrate, and maintain. Whether you're linting a single file locally or enforcing code quality across dozens of repos in CI, cpp-linter has you covered.
-
-We target C/C++ developers and DevOps engineers who want **reliable clang tooling without the build-from-source headache**. Our packages track the latest LLVM releases and cover Linux, macOS, and Windows on both x86_64 and Arm.
+**cpp-linter** provides `clang-format`, `clang-tidy`, and other LLVM tools as ready-to-use packages — no building from source. Works on Linux, macOS, and Windows (x86_64 and Arm).
 
 ---
 
 ## 🧭 Which one should I use?
 
-Not sure where to start? The decision flow below maps your scenario to the right package:
-
-```mermaid
-flowchart LR
-    CI[GitHub PR / Push] --> Action[cpp-linter-action]
-    Local[Pre-commit hook] --> Hooks[cpp-linter-hooks]
-    CLI[Need clang tools on CLI] --> Pip[pip install clang-tools]
-    Pip --> Brew[brew tap]
-    Pip --> Asdf[asdf plugin]
-    Pip --> Docker[Docker image]
-    Pip --> Binary[static binary]
-```
+Pick the package that matches your workflow:
 
 | Your goal | Use this | How |
 |-----------|----------|-----|
