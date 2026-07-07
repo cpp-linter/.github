@@ -1,18 +1,20 @@
 <!-- markdownlint-disable MD036 MD041 MD033 -->
 
-<p align="center">
-    <img src="../assets/readme-banner-small.png" width="512" height="141" alt="cpp-linter brand logo" />
-</p>
+<div align="center">
 
-<p align="center">
-    <strong>Automated C/C++ linting and formatting for your CI/CD pipelines and local workflows.</strong>
-</p>
+  <img src="../assets/readme-banner-small.png" width="512" height="141" alt="cpp-linter brand logo" />
 
-<p align="center">
-    <a href="https://cpp-linter.github.io/"><img src="https://img.shields.io/static/v1?label=Website&message=cpp-linter.github.io&color=blue" alt="Documentation" /></a>
-    <a href="https://github.com/cpp-linter/.github/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT" /></a>
-    <a href="https://github.com/cpp-linter/cpp-linter-action"><img src="https://img.shields.io/github/stars/cpp-linter/cpp-linter-action?style=social" alt="GitHub stars" /></a>
-</p>
+  # cpp-linter
+
+  ### Automated C/C++ linting and formatting for your CI/CD pipelines and local workflows.
+
+  [![Docs](https://img.shields.io/badge/Docs-cpp--linter.github.io-blue?logo=readthedocs&logoColor=white)](https://cpp-linter.github.io/)
+  [![CLI](https://img.shields.io/badge/CLI-cpp--linter-00ADD8?logo=python&logoColor=white)](https://github.com/cpp-linter/cpp-linter)
+  [![GitHub Action](https://img.shields.io/badge/GitHub_Action-cpp--linter--action-2088FF?logo=githubactions&logoColor=white)](https://github.com/cpp-linter/cpp-linter-action)
+  [![pre-commit](https://img.shields.io/badge/pre‑commit-cpp--linter--hooks-F7B93E?logo=pre-commit&logoColor=white)](https://github.com/cpp-linter/cpp-linter-hooks)
+  [![License](https://img.shields.io/badge/License-MIT-green.svg?logo=opensourceinitiative&logoColor=white)](https://github.com/cpp-linter/.github/blob/main/LICENSE)
+
+</div>
 
 ---
 
