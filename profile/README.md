@@ -20,7 +20,7 @@
 
 ## 📖 About
 
-**cpp-linter** provides `clang-format`, `clang-tidy`, and other LLVM tools as ready-to-use packages — no building from source. Works on Linux, macOS, and Windows (x86_64 and Arm).
+**cpp-linter** provides `clang-format`, `clang-tidy`, and other LLVM tools as ready-to-use packages — no building from source.
 
 ---
 
