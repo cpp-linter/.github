@@ -1,0 +1,21 @@
+[commit]
+conventional_commits = true
+subject_capitalized = false
+subject_imperative = false
+subject_max_length = 200
+subject_min_length = 1
+allow_commit_types = [
+    "fix",
+    "feat",
+    "build",
+    "chore",
+    "docs",
+    "style",
+    "refactor",
+    "remove",
+    "deprecate",
+    "security",
+    "add",
+    "perf",
+    "test",
+]
