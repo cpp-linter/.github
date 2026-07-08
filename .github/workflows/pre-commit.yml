@@ -44,10 +44,10 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        # needed for commit-check.toml and cspell.config.yml fallback
         with:
           persist-credentials: false
           repository: cpp-linter/.github
-          path: org-repo
       - name: Checkout ${{ github.repository }} repo
         # needed for cspell.config.yml (project-specific)
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
@@ -80,6 +80,6 @@ jobs:
           if [ -f project-repo/cspell.config.yml ]; then
             CSPELL_CONFIG="project-repo/cspell.config.yml"
           else
-            CSPELL_CONFIG="org-repo/cspell.config.yml"
+            CSPELL_CONFIG="cspell.config.yml"
           fi
           echo "${PR_TITLE}" | npx cspell-cli lint --config "${CSPELL_CONFIG}" stdin
