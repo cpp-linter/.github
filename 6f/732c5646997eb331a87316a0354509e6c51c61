@@ -1,0 +1,21 @@
+.github/ISSUE_TEMPLATE/feature_request.md
+  s_3bb7b519f57634::t_880daa596b72ce 10-11,13-14,16-17,20
+.github/ISSUE_TEMPLATE/bug_report.md
+  s_3bb7b519f57634::t_eda3cdb2a4cd43 3,14,17,19-22,25
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "6f732c5646997eb331a87316a0354509e6c51c61",
+  "prompts": {},
+  "sessions": {
+    "s_3bb7b519f57634": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019f43a5-3eec-7123-b9fb-90998547a7f6",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "shenxianpeng <xianpeng.shen@gmail.com>"
+    }
+  }
+}
