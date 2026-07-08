@@ -1,6 +1,6 @@
 ---
 name: Bug Report
-about: Create a report to help us improve
+about: Report a bug to help us improve
 title: ''
 labels: bug
 assignees: ''
@@ -11,22 +11,15 @@ assignees: ''
 A clear and concise description of what the bug is.
 
 **To Reproduce**
-Steps to reproduce the behavior:
-1. Run command '...'
-2. With arguments '...'
-3. See error
+Steps to reproduce the behavior.
 
 **Expected behavior**
-A clear and concise description of what you expected to happen.
+What you expected to happen instead.
 
-**Screenshots / Logs**
-If applicable, add screenshots or relevant log output to help explain your problem.
-
-**Environment (please complete the following information):**
-- OS: [e.g. Ubuntu 22.04, macOS 14]
-- cpp-linter version: [e.g. 2.0.0]
-- Python version: [e.g. 3.11]
-- Git version: [e.g. 2.40]
+**Environment**
+- OS:
+- Project version:
+- Relevant tool/CLI version:
 
 **Additional context**
-Add any other context about the problem here.
+Add any other context, logs, or screenshots.
