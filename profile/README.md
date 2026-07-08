@@ -32,7 +32,7 @@
 | **Pre-commit** linting | [cpp-linter-hooks](https://github.com/cpp-linter/cpp-linter-hooks) | Add to `.pre-commit-config.yaml` |
 | **Cross-platform** CLI | [clang-tools-pip](https://github.com/cpp-linter/clang-tools-pip) | `pip install clang-tools` |
 | **macOS** native | [homebrew-tap](https://github.com/cpp-linter/homebrew-tap) | `brew tap cpp-linter/tap && brew install clang-tools` |
-| **Version** management | [asdf-clang-tools](https://github.com/cpp-linter/asdf-clang-tools) | `asdf plugin add clang-tools` |
+| **Version** management | [asdf-clang-tools](https://github.com/cpp-linter/asdf-clang-tools) | `asdf plugin add clang-format ...` |
 | **Docker** images | [clang-tools-docker](https://github.com/cpp-linter/clang-tools-docker) | `docker pull ...` |
 | **Static** binaries | [clang-tools-static-binaries](https://github.com/cpp-linter/clang-tools-static-binaries) | Download from releases |
 
