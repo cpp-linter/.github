@@ -1,0 +1,19 @@
+.github/PULL_REQUEST_TEMPLATE.md
+  s_3bb7b519f57634::t_6f627b8dc46aba 3,7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "e37c49663ade25cd58573746293e0a71b2b75c92",
+  "prompts": {},
+  "sessions": {
+    "s_3bb7b519f57634": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019f43a5-3eec-7123-b9fb-90998547a7f6",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "shenxianpeng <xianpeng.shen@gmail.com>"
+    }
+  }
+}
