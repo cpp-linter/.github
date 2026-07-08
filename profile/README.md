@@ -18,7 +18,7 @@
 
 ## 📖 About
 
-**cpp-linter** provides `clang-format`, `clang-tidy`, and other LLVM tools as ready-to-use packages — no building from source.
+The **cpp-linter** organization delivers **clang-format**, **clang-tidy**, and other LLVM tools as ready-to-use packages across **GitHub Actions, pre-commit hooks, CLI, Docker, and more** — no building from source.
 
 ---
 
