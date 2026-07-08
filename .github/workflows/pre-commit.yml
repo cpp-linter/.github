@@ -44,7 +44,9 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
-        # needed for commit-check.toml and cspell.config.yml fallback
+        # No path set — checks out to workspace root so commit-check-action
+        # can auto-discover .github/commit-check.toml. Also provides
+        # cspell.config.yml as a fallback for consuming repos.
         with:
           persist-credentials: false
           repository: cpp-linter/.github
