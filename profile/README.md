@@ -4,7 +4,9 @@
 
   <img src="../assets/readme-banner-small.png" width="512" height="141" alt="cpp-linter brand logo" />
 
-  ### Lint and format your C/C++ code in every workflow — CI/CD, pre-commit, CLI, and containers.
+  # cpp-linter
+
+  ### Lint and format your C/C++ code in every workflow — GitHub Actions, pre-commit hooks, and CLI.
 
   [![Docs](https://img.shields.io/badge/Docs-cpp--linter.github.io-blue?logo=readthedocs&logoColor=white)](https://cpp-linter.github.io/)
   [![CLI](https://img.shields.io/badge/CLI-cpp--linter-00ADD8?logo=python&logoColor=white)](https://github.com/cpp-linter/cpp-linter)
