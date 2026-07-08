@@ -28,13 +28,13 @@
 
 | Your goal | Start here | One-liner |
 |-----------|------------|-----------|
-| <div align="center"><img src="https://img.shields.io/badge/-GitHub_Actions-2088FF?logo=githubactions&logoColor=white" height="20" /><br/>**CI/CD** linting</div> | [cpp-linter-action](https://github.com/cpp-linter/cpp-linter-action) | Add to `.github/workflows/` |
-| <div align="center"><img src="https://img.shields.io/badge/-pre--commit-F7B93E?logo=pre-commit&logoColor=white" height="20" /><br/>**Pre-commit** linting</div> | [cpp-linter-hooks](https://github.com/cpp-linter/cpp-linter-hooks) | Add to `.pre-commit-config.yaml` |
-| <div align="center"><img src="https://img.shields.io/badge/-pip-3776AB?logo=pypi&logoColor=white" height="20" /><br/>**Cross-platform** CLI</div> | [clang-tools-pip](https://github.com/cpp-linter/clang-tools-pip) | `pip install clang-tools` |
-| <div align="center"><img src="https://img.shields.io/badge/-Homebrew-FBB040?logo=homebrew&logoColor=white" height="20" /><br/>**macOS** native</div> | [homebrew-tap](https://github.com/cpp-linter/homebrew-tap) | `brew tap cpp-linter/tap && brew install clang-tools` |
-| <div align="center"><img src="https://img.shields.io/badge/-asdf-4B8BBE?logo=&logoColor=white" height="20" /><br/>**Version** management</div> | [asdf-clang-tools](https://github.com/cpp-linter/asdf-clang-tools) | `asdf plugin add clang-tools` |
-| <div align="center"><img src="https://img.shields.io/badge/-Docker-2496ED?logo=docker&logoColor=white" height="20" /><br/>**Docker** images</div> | [clang-tools-docker](https://github.com/cpp-linter/clang-tools-docker) | `docker pull ...` |
-| <div align="center"><img src="https://img.shields.io/badge/-Binary-555555?logo=files&logoColor=white" height="20" /><br/>**Static** binaries</div> | [clang-tools-static-binaries](https://github.com/cpp-linter/clang-tools-static-binaries) | Download from releases |
+| <img src="https://img.shields.io/badge/-GitHub_Actions-2088FF?logo=githubactions&logoColor=white" height="20" style="vertical-align: middle" /> **CI/CD** linting | [cpp-linter-action](https://github.com/cpp-linter/cpp-linter-action) | Add to `.github/workflows/` |
+| <img src="https://img.shields.io/badge/-pre--commit-F7B93E?logo=pre-commit&logoColor=white" height="20" style="vertical-align: middle" /> **Pre-commit** linting | [cpp-linter-hooks](https://github.com/cpp-linter/cpp-linter-hooks) | Add to `.pre-commit-config.yaml` |
+| <img src="https://img.shields.io/badge/-pip-3776AB?logo=pypi&logoColor=white" height="20" style="vertical-align: middle" /> **Cross-platform** CLI | [clang-tools-pip](https://github.com/cpp-linter/clang-tools-pip) | `pip install clang-tools` |
+| <img src="https://img.shields.io/badge/-Homebrew-FBB040?logo=homebrew&logoColor=white" height="20" style="vertical-align: middle" /> **macOS** native | [homebrew-tap](https://github.com/cpp-linter/homebrew-tap) | `brew tap cpp-linter/tap && brew install clang-tools` |
+| <img src="https://img.shields.io/badge/-asdf-4B8BBE?logo=&logoColor=white" height="20" style="vertical-align: middle" /> **Version** management | [asdf-clang-tools](https://github.com/cpp-linter/asdf-clang-tools) | `asdf plugin add clang-tools` |
+| <img src="https://img.shields.io/badge/-Docker-2496ED?logo=docker&logoColor=white" height="20" style="vertical-align: middle" /> **Docker** images | [clang-tools-docker](https://github.com/cpp-linter/clang-tools-docker) | `docker pull ...` |
+| <img src="https://img.shields.io/badge/-Binary-555555?logo=files&logoColor=white" height="20" style="vertical-align: middle" /> **Static** binaries | [clang-tools-static-binaries](https://github.com/cpp-linter/clang-tools-static-binaries) | Download from releases |
 
 <details>
 <summary>📦 <strong>More packages</strong> — lower-level & specialized builds</summary>
