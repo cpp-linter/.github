@@ -1,0 +1,19 @@
+profile/README.md
+  s_cb17dab4259eec::t_a32ebacf6556b6 21
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "ebd8ac2745b7955311cd2f27fc620fc8c64bcf34",
+  "prompts": {},
+  "sessions": {
+    "s_cb17dab4259eec": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019f42dc-dc80-7869-b65c-66e3b92870ea",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "shenxianpeng <xianpeng.shen@gmail.com>"
+    }
+  }
+}
