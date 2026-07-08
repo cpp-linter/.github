@@ -1,0 +1,19 @@
+.github/workflows/pre-commit.yml
+  s_5b9aa0bbc2271f::t_bd74de05339c19 83
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "cc140c159ae4d2a2f5ef40e496804737be41888a",
+  "prompts": {},
+  "sessions": {
+    "s_5b9aa0bbc2271f": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019f43c8-94d0-7255-bea3-5a89ebd2770f",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "shenxianpeng <xianpeng.shen@gmail.com>"
+    }
+  }
+}
