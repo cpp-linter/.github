@@ -1,0 +1,21 @@
+.gitignore
+  s_c0a88acc6c20d8::t_1b6874bca88d16 177-179
+profile/README.md
+  s_c0a88acc6c20d8::t_990b7e9b8cf63d 9
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "0586d401814ea986f8ac492a0e20d2603692d05e",
+  "prompts": {},
+  "sessions": {
+    "s_c0a88acc6c20d8": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019f42cd-eea9-7e88-a9d0-12c12a8ab935",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "shenxianpeng <xianpeng.shen@gmail.com>"
+    }
+  }
+}
