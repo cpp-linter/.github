@@ -1,0 +1,22 @@
+SUPPORT.md
+  s_3bb7b519f57634::t_57e0a400603e8f 1-21
+SECURITY.md
+  s_3bb7b519f57634::t_9dea80c1c272f3 1-4,9,12-15
+  s_3bb7b519f57634::t_5801f9987bfa1a 5-8,10-11
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "f2d73f509fe0369d8f69e05033b9c6904ce27b30",
+  "prompts": {},
+  "sessions": {
+    "s_3bb7b519f57634": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019f43a5-3eec-7123-b9fb-90998547a7f6",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "shenxianpeng <xianpeng.shen@gmail.com>"
+    }
+  }
+}
