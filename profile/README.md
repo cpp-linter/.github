@@ -35,24 +35,7 @@
 | **Version** management | [asdf-clang-tools](https://github.com/cpp-linter/asdf-clang-tools) | `asdf plugin add clang-format ...` |
 | **Docker** images | [clang-tools-docker](https://github.com/cpp-linter/clang-tools-docker) | `docker pull ...` |
 | **Static** binaries | [clang-tools-static-binaries](https://github.com/cpp-linter/clang-tools-static-binaries) | Download from [releases](https://github.com/cpp-linter/clang-tools-static-binaries/releases) |
-
-<details>
-<summary>📦 <strong>More packages</strong> — lower-level & specialized builds</summary>
-
-<br />
-
-The tools above are built on a few underlying distributions you can also use directly:
-
-| Project | What it does |
-|---------|--------------|
-| [clang-tools-static-binaries](https://github.com/cpp-linter/clang-tools-static-binaries) | The upstream source: statically-linked binaries for Linux, macOS, and Windows that every other distribution builds on. |
-| [clang-tools-wheel](https://github.com/cpp-linter/clang-tools-wheel) | Python wheels that redistribute `clang-format` and `clang-tidy`. |
-| [clang-apply-replacements](https://github.com/cpp-linter/clang-apply-replacements) | Standalone Python wheel for `clang-apply-replacements`. |
-| [clang-include-cleaner](https://github.com/cpp-linter/clang-include-cleaner) | Standalone Python wheel for `clang-include-cleaner` — detects unused `#include` directives. |
-
-Browse every repository on the [organization page](https://github.com/cpp-linter).
-
-</details>
+> 📖 Browse every repository on the [organization page →](https://github.com/cpp-linter)
 
 ---
 
