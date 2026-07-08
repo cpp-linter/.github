@@ -1,0 +1,19 @@
+.github/workflows/snyk-container.yml
+  s_3bb7b519f57634::t_00f6481f126a1e 5-10,28
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "6a83e1379fb1624c7d4935060a017a386ed8ac46",
+  "prompts": {},
+  "sessions": {
+    "s_3bb7b519f57634": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019f43a5-3eec-7123-b9fb-90998547a7f6",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "shenxianpeng <xianpeng.shen@gmail.com>"
+    }
+  }
+}
