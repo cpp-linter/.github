@@ -2,6 +2,12 @@ name: Snyk Container
 
 on:
   workflow_call:
+    inputs:
+      image:
+        description: 'Docker image to scan'
+        default: xianpengshen/clang-tools:all
+        required: false
+        type: string
 
 jobs:
   snyk:
@@ -19,7 +25,7 @@ jobs:
         # or you can sign up for free at https://snyk.io/login
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }} # zizmor: ignore[secrets-outside-env]
       with:
-        image: xianpengshen/clang-tools:all
+        image: ${{ inputs.image }}
         args: --severity-threshold=high --file=Dockerfile.all
 
     - name: Upload result to GitHub Code Scanning
