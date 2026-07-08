@@ -46,6 +46,15 @@ jobs:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           persist-credentials: false
+          repository: cpp-linter/.github
+      - name: Checkout ${{ github.repository }} repo
+        # needed for cspell.config.yml (project-specific)
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+          repository: ${{ github.repository }}
+          ref: ${{ github.sha }}
+          path: project-repo
       - uses: commit-check/commit-check-action@60e903b3fb06f5e64580b959f58d5b9406a3e002 # v2.9.0
         with:
           message: false
@@ -67,4 +76,9 @@ jobs:
         env:
           PR_TITLE: "${{ steps.get-title.outputs.title }}"
         run: |
-          echo "${PR_TITLE}" | npx cspell-cli lint --config cspell.config.yml stdin
+          if [ -f project-repo/cspell.config.yml ]; then
+            CSPELL_CONFIG="project-repo/cspell.config.yml"
+          else
+            CSPELL_CONFIG="cspell.config.yml"
+          fi
+          echo "${PR_TITLE}" | npx cspell-cli lint --config "${CSPELL_CONFIG}" stdin
