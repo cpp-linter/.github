@@ -1,0 +1,19 @@
+.github/workflows/stale.yml
+  s_3bb7b519f57634::t_3e4c16ee4155c4 17-18
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "fe45b3a6628ee4a9bc472bbe0bae7690f4256418",
+  "prompts": {},
+  "sessions": {
+    "s_3bb7b519f57634": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019f43a5-3eec-7123-b9fb-90998547a7f6",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "shenxianpeng <xianpeng.shen@gmail.com>"
+    }
+  }
+}
