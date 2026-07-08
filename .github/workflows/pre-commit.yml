@@ -80,6 +80,6 @@ jobs:
           if [ -f project-repo/cspell.config.yml ]; then
             CSPELL_CONFIG="project-repo/cspell.config.yml"
           else
-            SPELL_CONFIG="org-repo/cspell.config.yml"
+            CSPELL_CONFIG="org-repo/cspell.config.yml"
           fi
           echo "${PR_TITLE}" | npx cspell-cli lint --config "${CSPELL_CONFIG}" stdin
