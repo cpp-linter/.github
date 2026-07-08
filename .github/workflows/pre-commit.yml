@@ -67,13 +67,4 @@ jobs:
         env:
           PR_TITLE: "${{ steps.get-title.outputs.title }}"
         run: |
-          if [ -f cspell.config.yml ]; then
-            CONFIG="cspell.config.yml"
-          else
-            CONFIG="org-cspell.config.yml"
-            DEFAULT_BRANCH=$(gh api "repos/${{ github.action_repository }}" --jq '.default_branch') \
-              || DEFAULT_BRANCH="main"
-            curl -sSL -o "${CONFIG}" \
-              "https://raw.githubusercontent.com/${{ github.action_repository }}/${DEFAULT_BRANCH}/cspell.config.yml"
-          fi
-          echo "${PR_TITLE}" | npx cspell-cli lint --config "${CONFIG}" stdin
+          echo "${PR_TITLE}" | npx cspell-cli lint --config cspell.config.yml stdin
