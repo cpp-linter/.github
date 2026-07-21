@@ -11,6 +11,7 @@
   [![pre-commit](https://img.shields.io/badge/pre‑commit-cpp--linter--hooks-F7B93E?logo=pre-commit&logoColor=white)](https://github.com/cpp-linter/cpp-linter-hooks)
   [![CLI](https://img.shields.io/badge/CLI-cpp--linter-00ADD8?logo=python&logoColor=white)](https://github.com/cpp-linter/cpp-linter)
   [![License](https://img.shields.io/badge/License-MIT-green.svg?logo=opensourceinitiative&logoColor=white)](https://github.com/cpp-linter/.github/blob/main/LICENSE)
+  [![Sponsor me on Open Collective](https://img.shields.io/badge/Open--Collective-Sponsors-EA4AAA?style=flat&logo=opencollective "Sponsor me on Open Collective")](https://opencollective.com/cpp-linter)
 
 </div>
 
@@ -55,6 +56,8 @@ The **cpp-linter** organization delivers **clang-format**, **clang-tidy**, and o
     </td>
   </tr>
 </table>
+
+  [![Sponsor me on GitHub](https://img.shields.io/badge/Open--Collective-Sponsors-EA4AAA?style=flat&logo=opencollective "Sponsor me on Open Collective ")](https://opencollective.com/cpp-linter)
 
 ---
 
