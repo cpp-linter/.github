@@ -57,8 +57,6 @@ The **cpp-linter** organization delivers **clang-format**, **clang-tidy**, and o
   </tr>
 </table>
 
-  [![Sponsor me on GitHub](https://img.shields.io/badge/Open--Collective-Sponsors-EA4AAA?style=flat&logo=opencollective "Sponsor me on Open Collective ")](https://opencollective.com/cpp-linter)
-
 ---
 
 ## 🤝 Contributing
