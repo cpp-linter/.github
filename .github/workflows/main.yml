@@ -17,10 +17,10 @@ jobs:
   main:
     permissions:
       contents: read
-    uses: ./.github/workflows/pre-commit.yml
+    uses: $/.github/workflows/pre-commit.yml
   stale:
     permissions:
       contents: read
       issues: write
       pull-requests: write
-    uses: ./.github/workflows/stale.yml
+    uses: $/.github/workflows/stale.yml
