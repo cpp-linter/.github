@@ -24,6 +24,7 @@ Ink `#26241F` · Paper `#FAF6EE`.
 | Asset | File | Use |
 |-------|------|-----|
 | README hero banner | `social/org-readme-banner.png` | `.github/profile/README.md`, repo READMEs |
+| Profile banner (animated) | `../assets/profile-banner-light.svg`, `../assets/profile-banner-dark.svg` | `.github/profile/README.md`, light and dark themes |
 | Avatar — light | `social/avatar-light.png` | Org/profile avatar (640×640) |
 | Avatar — dark | `social/avatar-dark.png` | Dark backgrounds |
 | Avatar — gold tint | `social/avatar-tint.png` | Accent / alt avatar |
