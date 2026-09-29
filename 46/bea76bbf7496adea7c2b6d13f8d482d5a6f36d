@@ -1,0 +1,27 @@
+branding/profile-banner/generate.py
+  s_09263517f50e31::t_c7613cdf845a89 1-420
+branding/README.md
+  s_09263517f50e31::t_17d09a8a71ec05 27,38-47
+branding/profile-banner/fonts/OFL-bricolage-grotesque.txt
+  s_09263517f50e31::t_3ddf0c798e325e 1-93
+branding/profile-banner/fonts/OFL-instrument-sans.txt
+  s_09263517f50e31::t_07220f08aafb82 1-93
+branding/profile-banner/fonts/OFL-jetbrains-mono.txt
+  s_09263517f50e31::t_cd789132165dd7 1-93
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "46bea76bbf7496adea7c2b6d13f8d482d5a6f36d",
+  "prompts": {},
+  "sessions": {
+    "s_09263517f50e31": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f7df82d8-ca11-461d-89dd-b523c84d7f5d",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Xianpeng Shen <xianpeng.shen@gmail.com>"
+    }
+  }
+}
