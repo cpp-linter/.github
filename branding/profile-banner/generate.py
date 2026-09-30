@@ -219,11 +219,11 @@ def scene_comment(c):
     out.append(text(IX + 18, y + 79, "Some files did not pass the configured checks!", "s", 11.5, c["ink"]))
     r1 = y + 90
     out.append(g([rect(x + 10, r1, w - 20, 30, c["strip"], rx=6), caret(c, IX + 2, r1 + 15),
-                  rich(IX + 14, r1 + 19, [("clang-format (v21) reports: ", 400, None),
+                  rich(IX + 14, r1 + 19, [("clang-format (v21.1.0) reports: ", 400, None),
                                           ("1 file(s) not formatted", 600, None)], "s", 11.5, c["ink"])], cls="cl-r1"))
     r2 = r1 + 36
     out.append(g([rect(x + 10, r2, w - 20, 30, c["strip"], rx=6), caret(c, IX + 2, r2 + 15),
-                  rich(IX + 14, r2 + 19, [("clang-tidy (v21) reports: ", 400, None),
+                  rich(IX + 14, r2 + 19, [("clang-tidy (v21.1.0) reports: ", 400, None),
                                           ("2 concern(s)", 600, None)], "s", 11.5, c["ink"])], cls="cl-r2"))
     return out
 
@@ -236,10 +236,10 @@ def scene_summary(c):
            warn_icon(c, IX + 6, y + 62),
            text(IX + 18, y + 66, "Some files did not pass the configured checks!", "s", 11.5, c["ink"]),
            caret(c, IX + 2, y + 82),
-           rich(IX + 14, y + 86, [("clang-format (v21) reports: ", 400, None),
+           rich(IX + 14, y + 86, [("clang-format (v21.1.0) reports: ", 400, None),
                                   ("1 file(s) not formatted", 600, None)], "s", 11.5, c["ink"]),
            f'<path d="M{IX} {y + 100}l4 4 4-4z" fill="{c["muted"]}"/>',
-           rich(IX + 14, y + 105, [("clang-tidy (v21) reports: ", 400, None),
+           rich(IX + 14, y + 105, [("clang-tidy (v21.1.0) reports: ", 400, None),
                                    ("2 concern(s)", 600, None)], "s", 11.5, c["ink"])]
     out.append(g([f'<circle cx="{IX + 18}" cy="{y + 120}" r="1.8" fill="{c["ink"]}"/>',
                   rich(IX + 24, y + 124, [("src/parser.cpp:42:15:", 600, None),
