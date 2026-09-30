@@ -1,74 +1,33 @@
-<!-- markdownlint-disable MD036 MD041 MD033 -->
+<!-- markdownlint-disable MD033 MD041 -->
 
-<div align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../assets/profile-banner-dark.svg">
+  <img src="../assets/profile-banner-light.svg" width="880" alt="cpp-linter: C/C++ pull requests that arrive already checked.">
+</picture>
 
-  <img src="../assets/readme-banner-small.png" width="512" height="141" alt="cpp-linter brand logo" />
+cpp-linter runs clang-format and clang-tidy on C and C++ code: on every pull request,
+before every commit and on your laptop, at the same LLVM version.
 
-  ### Lint and format your C/C++ code in every workflow — GitHub Actions, pre-commit hooks, and CLI.
+[Website](https://cpp-linter.github.io/) ·
+[Get started](https://cpp-linter.github.io/getting-started/) ·
+[Showcase](https://cpp-linter.github.io/showcase/) ·
+[Discussions](https://github.com/orgs/cpp-linter/discussions) ·
+[Sponsor](https://opencollective.com/cpp-linter)
 
-  [![Docs](https://img.shields.io/badge/Docs-cpp--linter.github.io-blue?logo=readthedocs&logoColor=white)](https://cpp-linter.github.io/)
-  [![GitHub Action](https://img.shields.io/badge/GitHub_Action-cpp--linter--action-2088FF?logo=githubactions&logoColor=white)](https://github.com/cpp-linter/cpp-linter-action)
-  [![pre-commit](https://img.shields.io/badge/pre‑commit-cpp--linter--hooks-F7B93E?logo=pre-commit&logoColor=white)](https://github.com/cpp-linter/cpp-linter-hooks)
-  [![CLI](https://img.shields.io/badge/CLI-cpp--linter-00ADD8?logo=python&logoColor=white)](https://github.com/cpp-linter/cpp-linter)
-  [![License](https://img.shields.io/badge/License-MIT-green.svg?logo=opensourceinitiative&logoColor=white)](https://github.com/cpp-linter/.github/blob/main/LICENSE)
-  [![Sponsor me on Open Collective](https://img.shields.io/badge/Open--Collective-Sponsors-EA4AAA?style=flat&logo=opencollective "Sponsor me on Open Collective")](https://opencollective.com/cpp-linter)
+### Pick where the checks run
 
-</div>
+| Where | Project | Start with |
+| :-- | :-- | :-- |
+| On every pull request | [cpp-linter-action](https://github.com/cpp-linter/cpp-linter-action) | `uses: cpp-linter/cpp-linter-action@v2` |
+| Before every commit | [cpp-linter-hooks](https://github.com/cpp-linter/cpp-linter-hooks) | `args: [--style=file, --version=21]` |
+| Locally or in other CI | [cpp-linter](https://github.com/cpp-linter/cpp-linter) | `pip install cpp-linter` |
+| Just the clang tools | [clang-tools](https://github.com/cpp-linter/clang-tools-pip) | `pip install clang-tools` |
 
----
+The clang tools also come as [static binaries](https://github.com/cpp-linter/clang-tools-static-binaries)
+for Linux, macOS and Windows, a [Homebrew tap](https://github.com/cpp-linter/homebrew-tap) for macOS,
+an [asdf plugin](https://github.com/cpp-linter/asdf-clang-tools) and
+[Docker images](https://github.com/cpp-linter/clang-tools-docker).
 
-## 📖 About
-
-The **cpp-linter** organization delivers **clang-format**, **clang-tidy**, and other LLVM tools as ready-to-use packages across **GitHub Actions, pre-commit hooks, CLI, Docker, and more** — no building from source.
-
----
-
-## 🧭 Which one should I use?
-
-| Your goal | Start here | One-liner |
-|-----------|------------|-----------|
-| **CI/CD** linting | [cpp-linter-action](https://github.com/cpp-linter/cpp-linter-action) | Add to `.github/workflows/` |
-| **Pre-commit** linting | [cpp-linter-hooks](https://github.com/cpp-linter/cpp-linter-hooks) | Add to `.pre-commit-config.yaml` |
-| **Cross-platform** CLI | [clang-tools-pip](https://github.com/cpp-linter/clang-tools-pip) | `pip install clang-tools` |
-| **macOS** native | [homebrew-tap](https://github.com/cpp-linter/homebrew-tap) | `brew install cpp-linter/tap/clang-tools` |
-| **Version** management | [asdf-clang-tools](https://github.com/cpp-linter/asdf-clang-tools) | `asdf plugin add clang-format ...` |
-| **Docker** images | [clang-tools-docker](https://github.com/cpp-linter/clang-tools-docker) | `docker pull ...` |
-| **Static** binaries | [clang-tools-static-binaries](https://github.com/cpp-linter/clang-tools-static-binaries) | Download from [releases](https://github.com/cpp-linter/clang-tools-static-binaries/releases) |
-> 📖 Browse every repository on the [organization page →](https://github.com/cpp-linter)
-
----
-
-## 👥 Maintainers
-
-<table>
-  <tr>
-    <td>
-      <a href="https://github.com/shenxianpeng">
-        <img src="https://github.com/shenxianpeng.png" width="100" alt="shenxianpeng" /><br />
-        <b>shenxianpeng</b>
-      </a>
-    </td>
-    <td>
-      <a href="https://github.com/2bndy5">
-        <img src="https://github.com/2bndy5.png" width="100" alt="2bndy5" /><br />
-        <b>2bndy5</b>
-      </a>
-    </td>
-  </tr>
-</table>
-
----
-
-## 🤝 Contributing
-
-We welcome contributions of all kinds — bug reports, feature requests, documentation improvements, and code.
-
-- 📋 Read our [Code of Conduct](https://github.com/cpp-linter/.github/blob/main/CODE_OF_CONDUCT.md)
-- 🔧 Check individual repos for their `CONTRIBUTING.md` guides
-- 💬 Join the discussion on [GitHub Discussions](https://github.com/orgs/cpp-linter/discussions)
-
----
-
-<p align="center">
-    <sub>Made with ❤️ by the cpp-linter community</sub>
-</p>
+<sub>Maintained by two volunteers, [@shenxianpeng](https://github.com/shenxianpeng) and
+[@2bndy5](https://github.com/2bndy5). Sponsorship goes to the project through
+[Open Collective](https://opencollective.com/cpp-linter), where all income and expenses are public.</sub>

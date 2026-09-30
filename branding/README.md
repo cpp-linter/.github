@@ -24,6 +24,7 @@ Ink `#26241F` · Paper `#FAF6EE`.
 | Asset | File | Use |
 |-------|------|-----|
 | README hero banner | `social/org-readme-banner.png` | `.github/profile/README.md`, repo READMEs |
+| Profile banner (animated) | `../assets/profile-banner-light.svg`, `../assets/profile-banner-dark.svg` | `profile/README.md`, light and dark themes; see [Profile banner](#profile-banner) |
 | Avatar — light | `social/avatar-light.png` | Org/profile avatar (640×640) |
 | Avatar — dark | `social/avatar-dark.png` | Dark backgrounds |
 | Avatar — gold tint | `social/avatar-tint.png` | Accent / alt avatar |
@@ -33,6 +34,16 @@ Ink `#26241F` · Paper `#FAF6EE`.
 `wordmark-text.png` (text-only, transparent) · `logo.png` / `banner.png` (originals on white).
 
 Browse everything live in **Brand Assets.dc.html**.
+
+## Profile banner
+
+`profile-banner/generate.py` draws both banners. It embeds `profile-banner/logo-72.png` and the fonts in
+`profile-banner/fonts`, cut down to the characters the banner uses (SIL Open Font License, texts alongside).
+After changing the copy or the colors, run:
+
+```bash
+uv run branding/profile-banner/generate.py
+```
 
 ## Developer Notes
 
