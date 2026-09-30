@@ -28,7 +28,7 @@ FONTS = HERE / "fonts"
 ASSETS = HERE.parent.parent / "assets"
 
 W, H = 880, 280
-CYCLE = 16  # seconds, four scenes of four seconds
+SCENE_SECONDS = 3.5
 
 FONT_FILES = {
     "b": "bricolage-grotesque-latin.woff2",
@@ -179,11 +179,11 @@ def check_circle(c, cx, cy, r=8):
             f'stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>')
 
 
-# The strings below match what cpp-linter posts: annotation titles and messages
-# (rest_api/github_api.py), the thread comment (rest_api/__init__.py), the review
-# heading and the action's default auto-fix commit message.
-
-CAPTIONS = ["Notes in the diff", "One summary comment", "Suggestions you can commit", "Fixes pushed for you"]
+# Scene titles are the headings of the cpp-linter-action README, and each chip is
+# the action input that turns the feature on. The strings inside the scenes match
+# what cpp-linter posts: annotation titles and messages (rest_api/github_api.py),
+# the report used by the thread comment and the step summary (rest_api/__init__.py),
+# the review headings (clang_tools/*.py) and the default auto-fix commit message.
 
 
 def scene_notes(c):
@@ -228,7 +228,57 @@ def scene_comment(c):
     return out
 
 
-def scene_suggest(c):
+def scene_summary(c):
+    x, y, w, h = PANEL
+    out = [rect(x, y, w, 26, c["strip"]),
+           text(IX, y + 18, "cpp-linter summary", "s", 12, c["ink"], 600),
+           text(IX, y + 48, "Cpp-Linter Report", "s", 16, c["ink"], 600),
+           warn_icon(c, IX + 6, y + 62),
+           text(IX + 18, y + 66, "Some files did not pass the configured checks!", "s", 11.5, c["ink"]),
+           caret(c, IX + 2, y + 82),
+           rich(IX + 14, y + 86, [("clang-format (v21) reports: ", 400, None),
+                                  ("1 file(s) not formatted", 600, None)], "s", 11.5, c["ink"]),
+           f'<path d="M{IX} {y + 100}l4 4 4-4z" fill="{c["muted"]}"/>',
+           rich(IX + 14, y + 105, [("clang-tidy (v21) reports: ", 400, None),
+                                   ("2 concern(s)", 600, None)], "s", 11.5, c["ink"])]
+    out.append(g([f'<circle cx="{IX + 18}" cy="{y + 120}" r="1.8" fill="{c["ink"]}"/>',
+                  rich(IX + 24, y + 124, [("src/parser.cpp:42:15:", 600, None),
+                                          (" warning: [modernize-use-nullptr]", 400, None)], "s", 11, c["ink"]),
+                  rect(IX + 24, y + 130, 2.5, 14, c["line"]),
+                  text(IX + 32, y + 141, "use nullptr", "s", 11, c["muted"])], cls="cl-sd"))
+    out.append(text(IX, y + 166, "Job summary generated at run-time", "s", 10.5, c["muted"]))
+    return out
+
+
+def scene_tidy_review(c):
+    x, y, w, h = PANEL
+    out = author_row(c, y + 22, "reviewed")
+    out.append(text(IX, y + 46, "clang-tidy diagnostics", "s", 13, c["ink"], 600))
+    out.append(f'<circle cx="{IX + 4}" cy="{y + 60}" r="1.8" fill="{c["ink"]}"/>')
+    out.append(rich(IX + 12, y + 64, [("use nullptr [", 400, None), ("modernize-use-nullptr", 400, c["indigo"]),
+                                      ("]", 400, None)], "s", 11.5, c["ink"]))
+    bx, by, bw = x + 10, y + 74, w - 20
+    rows = [("-", "  char *end = 0;", c["delBg"], c["delText"]),
+            ("+", "  char *end = nullptr;", c["addBg"], c["addText"])]
+    box = [rect(bx, by, bw, 20, c["strip"]),
+           text(bx + 10, by + 14, "Suggested change", "s", 10.5, c["muted"])]
+    for i, (sign, code, bg, fg) in enumerate(rows):
+        ry = by + 20 + i * 17
+        box += [rect(bx, ry, bw, 17, bg), text(bx + 10, ry + 12.5, sign, "m", 11.5, fg),
+                text(bx + 26, ry + 12.5, code, "m", 11.5, fg)]
+    hb = 20 + len(rows) * 17
+    out.append(f'<clipPath id="{c["_id"]}-tidy"><rect x="{bx}" y="{by}" width="{bw}" height="{hb}" rx="6"/></clipPath>')
+    out.append(g(box, extra=f'clip-path="url(#{c["_id"]}-tidy)"'))
+    out.append(rect(bx + 0.5, by + 0.5, bw - 1, hb - 1, "none", rx=6, stroke=c["panelStroke"]))
+    label = "Commit suggestion"
+    btw = measure(label, "s", 11, 600) + 22
+    btx, bty = x + w - 10 - btw, by + hb + 8
+    out.append(rect(btx, bty, btw, 22, c["button"], rx=6))
+    out.append(text(btx + btw / 2, bty + 15, label, "s", 11, "#FFFFFF", 600, anchor="middle"))
+    return out
+
+
+def scene_format_review(c):
     x, y, w, h = PANEL
     out = author_row(c, y + 22, "reviewed")
     out.append(text(IX, y + 46, "clang-format suggestion", "s", 13, c["ink"], 600))
@@ -277,15 +327,27 @@ def scene_autofix(c):
     return out
 
 
-SCENES = [scene_notes, scene_comment, scene_suggest, scene_autofix]
+# (title, action input, drawing)
+SCENES = [
+    ("Annotations", "file-annotations", scene_notes),
+    ("Thread Comment", "thread-comments", scene_comment),
+    ("Step Summary", "step-summary", scene_summary),
+    ("Pull Request Review", "tidy-review", scene_tidy_review),
+    ("Pull Request Review", "format-review", scene_format_review),
+    ("Auto-fix", "auto-fix", scene_autofix),
+]
+N = len(SCENES)
+CYCLE = SCENE_SECONDS * N
+STILL = 3  # the scene shown without animation (tidy-review)
 
 
 def banner_body(c, logo_markup):
     """Everything inside <svg> except <style>."""
     idp = c["_id"]
     parts = [f'<title id="{idp}-t">cpp-linter: C/C++ pull requests that arrive already checked.</title>',
-             f'<desc id="{idp}-d">A loop of the four ways cpp-linter reports on a pull request: notes in the diff, '
-             f'one summary comment, suggestions you can commit, and fixes pushed by auto-fix.</desc>']
+             f'<desc id="{idp}-d">A loop of the ways cpp-linter-action reports on a pull request: file annotations, '
+             f'a thread comment, the step summary, pull request reviews from clang-tidy and clang-format, '
+             f'and auto-fix.</desc>']
     parts.append("<defs>"
                  f'<clipPath id="{idp}-card"><rect x="0.5" y="0.5" width="{W - 1}" height="{H - 1}" rx="24"/></clipPath>'
                  f'<clipPath id="{idp}-panel"><rect x="{PANEL[0]}" y="{PANEL[1]}" width="{PANEL[2]}" height="{PANEL[3]}" rx="12"/></clipPath>'
@@ -316,67 +378,90 @@ def banner_body(c, logo_markup):
                  f'stroke-width="{4.5 / ((sx + sy) / 2):.2f}" stroke-linecap="round"/>')
     parts.append(text(PX, base + 80 + 38, "clang-format and clang-tidy, reported on the pull request.", "s", 13.5, c["muted"]))
 
-    # right column: caption, progress, panel
-    seg_w = (RW - 3 * 6) / 4
-    for i in range(4):
-        sx = RX0 + i * (seg_w + 6)
+    # right column: caption with the action input, progress, panel
+    gap = 5
+    seg_w = (RW - (N - 1) * gap) / N
+    for i in range(N):
+        sx = RX0 + i * (seg_w + gap)
         parts.append(rect(sx, 56, seg_w, 3, c["track"], rx=1.5))
         parts.append(rect(sx, 56, seg_w, 3, c["fill"], rx=1.5, extra=f'class="cl-seg cl-f{i}"'))
     parts.append(rect(*PANEL, c["panel"], rx=12, extra=f'filter="url(#{idp}-shadow)"'))
-    for i, scene in enumerate(SCENES):
-        inner = [text(RX0, 45, CAPTIONS[i], "s", 13, c["ink"], 600),
-                 text(RX0 + RW, 45, f"{i + 1} / 4", "s", 11, c["muted"], anchor="end")]
+    for i, (title, flag, scene) in enumerate(SCENES):
+        tw = measure(title, "s", 13, 600)
+        fw = measure(flag, "m", 10.5) + 12
+        inner = [text(RX0, 45, title, "s", 13, c["ink"], 600),
+                 rect(RX0 + tw + 8, 32, fw, 17, c["panel"], rx=4, stroke=c["panelStroke"]),
+                 text(RX0 + tw + 14, 44.5, flag, "m", 10.5, c["muted"]),
+                 text(RX0 + RW, 45, f"{i + 1} / {N}", "s", 11, c["muted"], anchor="end")]
         body = g(scene(c), extra=f'clip-path="url(#{idp}-panel)"')
         parts.append(g(inner + [body], cls=f"cl-s cl-s{i}"))
     parts.append(rect(PANEL[0] + 0.5, PANEL[1] + 0.5, PANEL[2] - 1, PANEL[3] - 1, "none", rx=11.5, stroke=c["panelStroke"]))
     return "".join(parts)
 
 
+def pct(seconds):
+    """A moment in the loop as a keyframe percentage."""
+    return f"{round(100 * seconds / CYCLE, 2):g}%"
+
+
+# parts of a scene that slide in: (scene, seconds after the scene appears)
+ENTRIES = {"a1": (0, 0.6), "a2": (0, 1.5), "r1": (1, 0.6), "r2": (1, 1.3), "sd": (2, 1.0), "c2": (5, 0.8)}
+CLICK_SCENE = 4  # format-review: the pointer commits the suggestion
+
+
 def keyframes():
     k = []
-    # scene visibility, four windows of 25%
-    k.append("@keyframes cl-s0{0%,23%{opacity:1}25%,98%{opacity:0}100%{opacity:1}}")
-    k.append("@keyframes cl-s1{0%,23%{opacity:0}25%,48%{opacity:1}50%,100%{opacity:0}}")
-    k.append("@keyframes cl-s2{0%,48%{opacity:0}50%,73%{opacity:1}75%,100%{opacity:0}}")
-    k.append("@keyframes cl-s3{0%,73%{opacity:0}75%,98%{opacity:1}100%{opacity:0}}")
-    # progress segments fill during their window and reset with the loop
-    for i in range(4):
-        a, b = i * 25, (i + 1) * 25
-        full = f"{b}%,99.9%" if b < 100 else "99.9%"
-        k.append(f"@keyframes cl-f{i}{{0%{',' + str(a) + '%' if a else ''}{{transform:scaleX(0)}}{full}{{transform:scaleX(1)}}100%{{transform:scaleX(0)}}}}")
-
-    # staggered entries inside scenes
-    def enter(name, at):
-        return (f"@keyframes {name}{{0%,{at}%{{opacity:0;transform:translateY(6px)}}"
-                f"{at + 2.5}%,100%{{opacity:1;transform:translateY(0)}}}}")
-    k += [enter("cl-a1", 4), enter("cl-a2", 10), enter("cl-r1", 29), enter("cl-r2", 34), enter("cl-c2", 80)]
-    # pointer glides to the button, clicks, and the button answers
-    k.append("@keyframes cl-cursor{0%,53%{opacity:0;translate:-90px 6px}58%{opacity:1;translate:-90px 6px}"
-             "63%{opacity:1;translate:0 0;scale:1}64.5%{scale:.82}66%{scale:1}72%{opacity:1;translate:0 0}74%,100%{opacity:0;translate:0 0}}")
-    k.append("@keyframes cl-btn{0%,63.5%{opacity:1}64.5%{opacity:.7}66.5%,100%{opacity:1}}")
+    fade = 0.3  # seconds
+    # each scene fades in while the previous one fades out
+    for i in range(N):
+        a, b = i * SCENE_SECONDS, (i + 1) * SCENE_SECONDS
+        if i == 0:
+            frames = f"0%,{pct(b - fade)}{{opacity:1}}{pct(b)},{pct(CYCLE - fade)}{{opacity:0}}100%{{opacity:1}}"
+        elif i == N - 1:
+            frames = f"0%,{pct(a - fade)}{{opacity:0}}{pct(a)},{pct(CYCLE - fade)}{{opacity:1}}100%{{opacity:0}}"
+        else:
+            frames = f"0%,{pct(a - fade)}{{opacity:0}}{pct(a)},{pct(b - fade)}{{opacity:1}}{pct(b)},100%{{opacity:0}}"
+        k.append(f"@keyframes cl-s{i}{{{frames}}}")
+    # progress segments fill during their scene and reset with the loop
+    for i in range(N):
+        a, b = i * SCENE_SECONDS, (i + 1) * SCENE_SECONDS
+        empty = "0%" if i == 0 else f"0%,{pct(a)}"
+        full = f"{pct(b)},99.9%" if i < N - 1 else "99.9%"
+        k.append(f"@keyframes cl-f{i}{{{empty}{{transform:scaleX(0)}}{full}{{transform:scaleX(1)}}100%{{transform:scaleX(0)}}}}")
+    for name, (scene, at) in ENTRIES.items():
+        t = scene * SCENE_SECONDS + at
+        k.append(f"@keyframes cl-{name}{{0%,{pct(t)}{{opacity:0;transform:translateY(6px)}}"
+                 f"{pct(t + 0.4)},100%{{opacity:1;transform:translateY(0)}}}}")
+    # the pointer glides to the button, clicks, and the button answers
+    s = CLICK_SCENE * SCENE_SECONDS
+    k.append(f"@keyframes cl-cursor{{0%,{pct(s + 0.4)}{{opacity:0;translate:-90px 6px}}"
+             f"{pct(s + 0.7)}{{opacity:1;translate:-90px 6px}}{pct(s + 1.4)}{{opacity:1;translate:0 0;scale:1}}"
+             f"{pct(s + 1.6)}{{scale:.82}}{pct(s + 1.8)}{{scale:1}}{pct(s + 2.8)}{{opacity:1;translate:0 0}}"
+             f"{pct(s + 3.1)},100%{{opacity:0;translate:0 0}}}}")
+    k.append(f"@keyframes cl-btn{{0%,{pct(s + 1.55)}{{opacity:1}}{pct(s + 1.65)}{{opacity:.7}}{pct(s + 1.9)},100%{{opacity:1}}}}")
     return "".join(k)
 
 
-RULES = (
-    ".ff-b{font-family:'Bricolage Grotesque',sans-serif}"
-    ".ff-s{font-family:'Instrument Sans',-apple-system,'Segoe UI',sans-serif}"
-    ".ff-m{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace}"
-    ".cl-s1,.cl-s2,.cl-s3{opacity:0}"
-    ".cl-seg{transform-box:fill-box;transform-origin:0 50%;transform:scaleX(0)}"
-    ".cl-f2{transform:scaleX(1)}"
-    ".cl-cursor{opacity:0}"
-    "@media (prefers-reduced-motion:no-preference){"
-    f".cl-s0{{animation:cl-s0 {CYCLE}s linear infinite}}.cl-s1{{animation:cl-s1 {CYCLE}s linear infinite}}"
-    f".cl-s2{{opacity:0;animation:cl-s2 {CYCLE}s linear infinite}}.cl-s3{{animation:cl-s3 {CYCLE}s linear infinite}}"
-    + "".join(f".cl-f{i}{{animation:cl-f{i} {CYCLE}s linear infinite}}" for i in range(4))
-    + "".join(f".cl-{n}{{transform-box:fill-box;animation:cl-{n} {CYCLE}s ease-out infinite}}" for n in ("a1", "a2", "r1", "r2", "c2"))
-    + ".cl-cursor>path{transform-box:fill-box;transform-origin:0 0}"
-    f".cl-cursor>path{{animation:cl-cursor {CYCLE}s cubic-bezier(.4,0,.2,1) infinite}}.cl-cursor{{opacity:1}}"
-    f".cl-btn{{animation:cl-btn {CYCLE}s linear infinite}}"
-    "}"
-    # without motion the banner shows the suggestion scene
-    "@media (prefers-reduced-motion:reduce){.cl-s0{opacity:0}.cl-s2{opacity:1}}"
-)
+def rules():
+    loop = f"{CYCLE:g}s"
+    return (
+        ".ff-b{font-family:'Bricolage Grotesque',sans-serif}"
+        ".ff-s{font-family:'Instrument Sans',-apple-system,'Segoe UI',sans-serif}"
+        ".ff-m{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace}"
+        # without animation, or with reduced motion, one scene stays on screen
+        f".cl-s{{opacity:0}}.cl-s{STILL}{{opacity:1}}"
+        ".cl-seg{transform-box:fill-box;transform-origin:0 50%;transform:scaleX(0)}"
+        + ",".join(f".cl-f{i}" for i in range(STILL + 1)) + "{transform:scaleX(1)}"
+        ".cl-cursor{opacity:0}"
+        "@media (prefers-reduced-motion:no-preference){"
+        + "".join(f".cl-s{i}{{animation:cl-s{i} {loop} linear infinite}}" for i in range(N))
+        + "".join(f".cl-f{i}{{animation:cl-f{i} {loop} linear infinite}}" for i in range(N))
+        + "".join(f".cl-{n}{{transform-box:fill-box;animation:cl-{n} {loop} ease-out infinite}}" for n in ENTRIES)
+        + ".cl-cursor>path{transform-box:fill-box;transform-origin:0 0}"
+        f".cl-cursor>path{{animation:cl-cursor {loop} cubic-bezier(.4,0,.2,1) infinite}}.cl-cursor{{opacity:1}}"
+        f".cl-btn{{animation:cl-btn {loop} linear infinite}}"
+        "}"
+    )
 
 
 def subset_font(ff):
@@ -406,7 +491,7 @@ def main():
         data = base64.b64encode(subset_font(ff)).decode()
         faces.append(f"@font-face{{font-family:'{FAMILY[ff]}';src:url(data:font/woff2;base64,{data}) format('woff2');"
                      f"font-weight:{WEIGHTS[ff]};font-display:block}}")
-    style = "".join(faces) + RULES + keyframes()
+    style = "".join(faces) + rules() + keyframes()
 
     for name, c in variants.items():
         svg = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" '
