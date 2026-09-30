@@ -1,0 +1,23 @@
+assets/profile-banner-dark.svg
+  s_09263517f50e31::t_b461515075b889 1
+assets/profile-banner-light.svg
+  s_09263517f50e31::t_5ad7a829149ef4 1
+branding/profile-banner/generate.py
+  s_09263517f50e31::t_61842f82ad0dd0 222,226,239,242
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "98edfbd29efe5e1c5ba8003cf6351a11f023d57c",
+  "prompts": {},
+  "sessions": {
+    "s_09263517f50e31": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f7df82d8-ca11-461d-89dd-b523c84d7f5d",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Xianpeng Shen <xianpeng.shen@gmail.com>"
+    }
+  }
+}
