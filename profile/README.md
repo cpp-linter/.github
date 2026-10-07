@@ -30,5 +30,5 @@ an [asdf plugin](https://github.com/cpp-linter/asdf-clang-tools) and
 
 <sub>Maintained by two volunteers, [@shenxianpeng](https://github.com/shenxianpeng) and
 [@2bndy5](https://github.com/2bndy5). Sponsor the project through
-[GitHub Sponsors](https://github.com/sponsors/cpp-linter) or [Open Collective](https://opencollective.com/cpp-linter);
+[Open Collective](https://opencollective.com/cpp-linter);
 see the [sponsor tiers](https://cpp-linter.github.io/sponsor/#sponsor-tiers).</sub>
