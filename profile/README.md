@@ -12,7 +12,7 @@ before every commit and on your laptop, at the same LLVM version.
 [Get started](https://cpp-linter.github.io/getting-started/) ·
 [Showcase](https://cpp-linter.github.io/showcase/) ·
 [Discussions](https://github.com/orgs/cpp-linter/discussions) ·
-[Sponsor](https://opencollective.com/cpp-linter)
+[Sponsor](https://cpp-linter.github.io/sponsor/)
 
 ### Pick where the checks run
 
@@ -29,5 +29,6 @@ an [asdf plugin](https://github.com/cpp-linter/asdf-clang-tools) and
 [Docker images](https://github.com/cpp-linter/clang-tools-docker).
 
 <sub>Maintained by two volunteers, [@shenxianpeng](https://github.com/shenxianpeng) and
-[@2bndy5](https://github.com/2bndy5). Sponsorship goes to the project through
-[Open Collective](https://opencollective.com/cpp-linter), where all income and expenses are public.</sub>
+[@2bndy5](https://github.com/2bndy5). Sponsor the project through
+[GitHub Sponsors](https://github.com/sponsors/cpp-linter) or [Open Collective](https://opencollective.com/cpp-linter);
+see the [sponsor tiers](https://cpp-linter.github.io/sponsor/#sponsor-tiers).</sub>
