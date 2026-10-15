@@ -18,6 +18,7 @@ words:
   - sarif
   - setuptools
   - testpypi
+  - urllib3
   - venv
   - virtualenv
   - xianpengshen
