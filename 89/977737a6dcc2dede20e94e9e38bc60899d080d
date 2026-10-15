@@ -1,0 +1,21 @@
+.github/workflows/pre-commit.yml
+  s_f518a1c9328c7b::t_ce06d1a19628fb 79-82
+cspell.config.yml
+  s_f518a1c9328c7b::t_e8ed9d3d8793a2 21
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "89977737a6dcc2dede20e94e9e38bc60899d080d",
+  "prompts": {},
+  "sessions": {
+    "s_f518a1c9328c7b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c2b090ca-b947-4998-975f-5d845a56ad69",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Xianpeng Shen <xianpeng.shen@gmail.com>"
+    }
+  }
+}
