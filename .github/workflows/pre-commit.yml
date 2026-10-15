@@ -76,6 +76,10 @@ jobs:
         with:
           node-version: latest
       - name: spell check
+        # Dependabot titles are generated from package names that are not
+        # dictionary words (urllib3, pyjwt, ...); spell-checking them only
+        # blocks dependency updates.
+        if: github.actor != 'dependabot[bot]'
         env:
           PR_TITLE: "${{ steps.get-title.outputs.title }}"
         run: |
