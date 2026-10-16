@@ -40,15 +40,6 @@ categories:
     when:
       labels:
         - documentation
-  # Default label used by Dependabot. Listed before "Maintenance" and
-  # exclusive, so Dependabot PRs (which also get the `chore` label) are
-  # listed here only.
-  - title: 📦 Dependency updates
-    exclusive: true
-    when:
-      labels:
-        - dependencies
-    collapse-after: 15
   - title: 👻 Maintenance
     when:
       labels:
@@ -61,6 +52,12 @@ categories:
         - test
         - tests
   - title: ✍ Other changes
+  # Default label used by Dependabot
+  - title: 📦 Dependency updates
+    when:
+      labels:
+        - dependencies
+    collapse-after: 15
   # Dropped from the release notes before anything else runs
   - type: pre-exclude
     when:
