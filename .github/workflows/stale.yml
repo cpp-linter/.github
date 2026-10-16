@@ -9,18 +9,23 @@ jobs:
     permissions:
       contents: read
       issues: write
+      pull-requests: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/stale@4391f3da665fdf50b6810c1a66712fb9ba21aa93 #v11.0.0
         with:
           days-before-stale: 60
           days-before-close: 7
-          # Only handle issues; never mark or close pull requests
-          days-before-pr-stale: -1
-          days-before-pr-close: -1
+          # Give pull requests much longer before they are marked stale or closed
+          days-before-pr-stale: 180
+          days-before-pr-close: 30
           stale-issue-message: >-
             This issue has been automatically marked as stale because
             it has not had recent activity.
             It will be closed if no further activity occurs.
+          stale-pr-message: >-
+            This pull request has been automatically marked as stale because
+            it has not had recent activity.
+            It will be closed in 30 days if no further activity occurs.
           # Better to exclude certain issues from being marked as stale
           exempt-issue-labels: "help wanted,security,pinned,bug"
