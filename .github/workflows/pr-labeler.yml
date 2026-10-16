@@ -17,3 +17,41 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           config-name: github:cpp-linter/.github:/.github/release-drafter.yml
+
+  # Dependabot PRs get `chore` plus the semver label of the update
+  # (major/minor/patch), which release-drafter uses for the changelog
+  # section and the next version.
+  label_dependabot_pr:
+    if: github.event.pull_request.user.login == 'dependabot[bot]'
+    permissions:
+      pull-requests: write
+      contents: read
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch Dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@25dd0e34f4fe68f24cc83900b1fe3fe149efef98 # v3.1.0
+      - name: Add labels
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          UPDATE_TYPE: ${{ steps.metadata.outputs.update-type }}
+        run: |
+          labels=(chore)
+          case "${UPDATE_TYPE}" in
+            version-update:semver-major) labels+=(major) ;;
+            version-update:semver-minor) labels+=(minor) ;;
+            version-update:semver-patch) labels+=(patch) ;;
+          esac
+          existing=$(gh label list --limit 500 --json name --jq '.[].name')
+          for label in "${labels[@]}"; do
+            if ! grep -qxF "${label}" <<< "${existing}"; then
+              case "${label}" in
+                chore) description="Maintenance work" ;;
+                *) description="A ${label} version bump" ;;
+              esac
+              gh label create "${label}" --color E99695 --description "${description}"
+            fi
+          done
+          gh pr edit "${PR_NUMBER}" --add-label "$(IFS=,; echo "${labels[*]}")"
