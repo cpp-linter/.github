@@ -66,19 +66,39 @@ categories:
         - skip-changelog
         - invalid
   # https://github.com/release-drafter/release-drafter?tab=readme-ov-file#version-resolver
+  # The next version comes from the conventional PR title: `type!:` is a
+  # breaking change (major), `feat:` is minor, anything else is patch.
+  # A `semver:*` label overrides the title in either direction: these rules
+  # come first and are exclusive, so the title rules below are skipped for a
+  # labeled PR. The labels are deliberately not named `major`/`minor`/`patch`,
+  # because Dependabot adds labels with those exact names to its PRs whenever
+  # they exist in the repository.
+  - type: version-resolver
+    semver-increment: major
+    exclusive: true
+    when:
+      label: semver:major
+  - type: version-resolver
+    semver-increment: minor
+    exclusive: true
+    when:
+      label: semver:minor
+  - type: version-resolver
+    semver-increment: patch
+    exclusive: true
+    when:
+      label: semver:patch
   - type: version-resolver
     semver-increment: major
     when:
-      label: major
+      conventional:
+        breaking: true
   - type: version-resolver
     semver-increment: minor
     when:
-      label: minor
-  - type: version-resolver
-    semver-increment: patch
-    when:
-      label: patch
-  # Fallback when no version label is present
+      conventional:
+        type: feat
+  # Fallback when nothing above matches
   - type: version-resolver
     semver-increment: patch
 
