@@ -17,27 +17,3 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           config-name: github:cpp-linter/.github:/.github/release-drafter.yml
-
-  # Dependabot adds a `major`/`minor`/`patch` label by itself whenever the
-  # repository has such labels, and release-drafter would then bump the next
-  # version by that much. A dependency update should not decide the project's
-  # version, so drop those labels (and `chore`) from Dependabot PRs; they stay
-  # under "Dependency updates" through the `dependencies` label.
-  unlabel_dependabot_pr:
-    if: github.event.pull_request.user.login == 'dependabot[bot]'
-    permissions:
-      pull-requests: write
-      contents: read
-    runs-on: ubuntu-latest
-    steps:
-      - name: Remove version bump labels
-        env:
-          GH_TOKEN: ${{ github.token }}
-          GH_REPO: ${{ github.repository }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-        run: |
-          remove=$(gh pr view "${PR_NUMBER}" --json labels --jq \
-            '[.labels[].name | select(. == "major" or . == "minor" or . == "patch" or . == "chore")] | join(",")')
-          if [ -n "${remove}" ]; then
-            gh pr edit "${PR_NUMBER}" --remove-label "${remove}"
-          fi
