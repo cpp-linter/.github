@@ -24,8 +24,8 @@ before every commit and on your laptop, at the same LLVM version.
 | Just the clang tools | [clang-tools](https://github.com/cpp-linter/clang-tools-pip) | `pip install clang-tools` |
 
 The clang tools also come as [static binaries](https://github.com/cpp-linter/clang-tools-static-binaries)
-for Linux, macOS and Windows, [npm packages](https://github.com/cpp-linter/clang-tools-npm)
-(`npx @cpp-linter/clang-tidy`), a [Homebrew tap](https://github.com/cpp-linter/homebrew-tap) for macOS,
+for Linux, macOS and Windows, [npm packages](https://github.com/cpp-linter/clang-tools-npm),
+a [Homebrew tap](https://github.com/cpp-linter/homebrew-tap) for macOS,
 an [asdf plugin](https://github.com/cpp-linter/asdf-clang-tools) and
 [Docker images](https://github.com/cpp-linter/clang-tools-docker).
 
