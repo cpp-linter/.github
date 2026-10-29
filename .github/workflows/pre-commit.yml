@@ -22,7 +22,7 @@ jobs:
           python-version: "3.x"
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
-          node-version: latest
+          node-version: lts/*
       - name: Run commands
         if: inputs.commands
         run: ${INPUTS_COMMANDS}
@@ -74,7 +74,7 @@ jobs:
           echo "title=${pr_title}" >> "${GITHUB_OUTPUT}"
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
-          node-version: latest
+          node-version: lts/*
       - name: spell check
         # Dependabot titles are generated from package names that are not
         # dictionary words (urllib3, pyjwt, ...); spell-checking them only
