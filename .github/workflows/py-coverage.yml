@@ -2,6 +2,10 @@ name: Upload coverage reports
 
 on:
   workflow_call:
+    secrets:
+      CODECOV_TOKEN:
+        description: Token for uploading the report to Codecov
+        required: true
 
 jobs:
   publish-coverage-reports:
