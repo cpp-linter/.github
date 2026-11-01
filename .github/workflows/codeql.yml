@@ -4,7 +4,7 @@ on:
   workflow_call:
     inputs:
       language:
-        required: true
+        required: false
         type: string
         default: "python"
         description: what is your project language
