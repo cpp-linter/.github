@@ -1,7 +1,6 @@
 name: Lint CI workflows
 
 on:
-  workflow_call:
   push:
     branches: [main]
   pull_request:
