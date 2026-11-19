@@ -29,6 +29,17 @@ Ink `#26241F` · Paper `#FAF6EE`.
 | Avatar — dark | `social/avatar-dark.png` | Dark backgrounds |
 | Avatar — gold tint | `social/avatar-tint.png` | Accent / alt avatar |
 
+## Status marks (96×96, transparent — shown at 20 px in front of bot comment headings)
+
+| Status | File | Use |
+|--------|------|-----|
+| Passed | `status/passed.png` | nothing to report |
+| Warned | `status/warned.png` | findings (clang-format or clang-tidy warnings) |
+| Failed | `status/failed.png` | a clang-tidy error, or clang-format failed to run |
+
+cpp-linter v2 links them from `https://raw.githubusercontent.com/cpp-linter/.github/main/branding/status/`,
+so keep their names and location.
+
 ## Source artwork
 `icon.png` (transparent check mark) · `wordmark.png` (full lockup, transparent) ·
 `wordmark-text.png` (text-only, transparent) · `logo.png` / `banner.png` (originals on white).
