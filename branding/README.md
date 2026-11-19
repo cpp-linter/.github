@@ -29,6 +29,21 @@ Ink `#26241F` · Paper `#FAF6EE`.
 | Avatar — dark | `social/avatar-dark.png` | Dark backgrounds |
 | Avatar — gold tint | `social/avatar-tint.png` | Accent / alt avatar |
 
+## Status marks (120×120 PNG with SVG sources, transparent — shown at 20 px in front of bot comment headings)
+
+Solid circles on a 20 px grid: brand green `#48B888` with a white check, brand gold `#F8C418`
+with a dark `#1F2328` exclamation mark, and red `#E5534B` with a white cross.
+The SVG files are the sources; GitHub comments use the PNG files.
+
+| Status | File | Use |
+|--------|------|-----|
+| Passed | `status/passed.png` (`.svg`) | nothing to report |
+| Warned | `status/warned.png` (`.svg`) | findings (clang-format or clang-tidy warnings) |
+| Failed | `status/failed.png` (`.svg`) | a clang-tidy error, or clang-format failed to run |
+
+cpp-linter v2 links them from `https://raw.githubusercontent.com/cpp-linter/.github/main/branding/status/`,
+so keep their names and location.
+
 ## Source artwork
 `icon.png` (transparent check mark) · `wordmark.png` (full lockup, transparent) ·
 `wordmark-text.png` (text-only, transparent) · `logo.png` / `banner.png` (originals on white).
