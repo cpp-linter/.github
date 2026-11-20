@@ -82,15 +82,15 @@ def drawn(fn):
 
 def bang(d):
     col = GOLD + (255,)
-    stroke(d, [(270, 60), (244, 141), (214, 222)], brush(34, 38, 12, 0.15), col)
-    x, y, r = 197, 272, 20
+    stroke(d, [(285, 60), (254, 141), (220, 220)], brush(40, 44, 22, 0.15), col)
+    x, y, r = 203, 271, 23
     d.ellipse([(x - r) * SS, (y - r) * SS, (x + r) * SS, (y + r) * SS], fill=col)
 
 
 def cross(d):
     col = RED + (255,)
-    stroke(d, [(148, 138), (205, 205), (262, 282)], brush(22, 34, 14, 0.4), col)
-    stroke(d, [(135, 292), (225, 190), (322, 72)], brush(24, 36, 9, 0.3), col)
+    stroke(d, [(150, 140), (204, 202), (254, 262)], brush(28, 42, 26, 0.45), col)
+    stroke(d, [(152, 274), (234, 177), (322, 72)], brush(38, 42, 14, 0.3), col)
 
 
 def tile(parts, out, content, box):
